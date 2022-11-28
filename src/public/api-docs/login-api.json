@@ -1,0 +1,8 @@
+{
+    "APIName": "Login API",
+    "Method": "GET",
+    "Path": "[ServerAddress]/login",
+    "Header": "Nothing",
+    "Body": "{userName, password}",
+    "Response": "{code, status, message, data}"
+}

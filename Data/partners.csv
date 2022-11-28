@@ -1,0 +1,50 @@
+﻿id,userName,name,password,email,phone,address,birth,status,role,createdAt,updatedAt
+1,BigCorp,BigCorp,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,huygiapboy@gmail.com,0384850710,Hà Nội,,2,1,2022-11-26,2022-11-26
+2,QuynhNT,QuynhNT,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,quynhnt@gmail.com,,Hà Nội,,2,1,2022-11-26,2022-11-26
+3,DoMinh,DoMinh,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,dominh@gmail.com,,Hà Nội,,2,1,2022-11-26,2022-11-26
+4,AC,AC,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hồ Chí Minh,,2,2,2022-11-26,2022-11-26
+5,Acura,Acura,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Đà Nẵng,,2,2,2022-11-26,2022-11-26
+6,AlfaRomeo ,Alfa Romeo ,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hải Phòng,,2,2,2022-11-26,2022-11-26
+7,Alpina,Alpina,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Bắc Giang,,2,2,2022-11-26,2022-11-26
+8,Aro,Aro,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Lạng Sơn,,2,2,2022-11-26,2022-11-26
+9,AstonMartin,Aston Martin,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Cà Mau,,2,2,2022-11-26,2022-11-26
+10,Audi,Audi,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Thái Bình,,2,2,2022-11-26,2022-11-26
+11,Austin,Austin,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Nghệ An,,2,2,2022-11-26,2022-11-26
+12,AustinHealey,Austin Healey,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hà Tĩnh,,2,2,2022-11-26,2022-11-26
+13,Autocam,Autocam,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hồ Chí Minh,,2,2,2022-11-26,2022-11-26
+14,Baic,Baic,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Đà Nẵng,,2,2,2022-11-26,2022-11-26
+15,Autobianchi,Autobianchi,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hải Phòng,,2,2,2022-11-26,2022-11-26
+16,Autocamuro,Autocamuro,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Bắc Giang,,2,2,2022-11-26,2022-11-26
+17,Baicz,Baicz,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Lạng Sơn,,2,2,2022-11-26,2022-11-26
+18,BaltijasDzips,Baltijas Dzips,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Cà Mau,,2,2,2022-11-26,2022-11-26
+19,Batmobile,Batmobile,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Thái Bình,,2,2,2022-11-26,2022-11-26
+20,Beijing,Beijing,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Nghệ An,,2,2,2022-11-26,2022-11-26
+21,Bentley,Bentley,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hà Tĩnh,,2,2,2022-11-26,2022-11-26
+22,Bertone,Bertone,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hồ Chí Minh,,2,2,2022-11-26,2022-11-26
+23,Bilenkin,Bilenkin,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Đà Nẵng,,2,2,2022-11-26,2022-11-26
+24,Bitter,Bitter,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hải Phòng,,2,2,2022-11-26,2022-11-26
+25,BMW,BMW,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Bắc Giang,,2,2,2022-11-26,2022-11-26
+26,TTBH2,TTBH1,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Cà Mau,,2,4,2022-11-26,2022-11-26
+27,TTBH2,TTBH2,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Thái Bình,,2,4,2022-11-26,2022-11-26
+28,TTBH3,TTBH3,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Nghệ An,,2,4,2022-11-26,2022-11-26
+29,TTBH4,TTBH4,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Hà Tĩnh,,2,4,2022-11-26,2022-11-26
+30,TTBH5,TTBH5,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Hồ Chí Minh,,2,4,2022-11-26,2022-11-26
+31,TTBH6,TTBH6,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Đà Nẵng,,2,4,2022-11-26,2022-11-26
+32,TTBH7,TTBH7,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Hải Phòng,,2,4,2022-11-26,2022-11-26
+33,TTBH8,TTBH8,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Bắc Giang,,2,4,2022-11-26,2022-11-26
+34,TTBH9,TTBH9,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Cà Mau,,2,4,2022-11-26,2022-11-26
+35,DL1,DL1,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hà Tĩnh,,2,3,2022-11-26,2022-11-26
+36,DL2,DL2,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hồ Chí Minh,,2,3,2022-11-26,2022-11-26
+37,DL3,DL3,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Đà Nẵng,,2,3,2022-11-26,2022-11-26
+38,DL4,DL4,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hải Phòng,,2,3,2022-11-26,2022-11-26
+39,DL5,DL5,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Bắc Giang,,2,3,2022-11-26,2022-11-26
+40,DL6,DL6,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Cà Mau,,2,3,2022-11-26,2022-11-26
+41,DL7,DL7,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Thái Bình,,2,3,2022-11-26,2022-11-26
+42,DL8,DL8,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Nghệ An,,2,3,2022-11-26,2022-11-26
+43,DL9,DL9,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hà Tĩnh,,2,3,2022-11-26,2022-11-26
+44,DL10,DL10,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hồ Chí Minh,,2,3,2022-11-26,2022-11-26
+45,DL11,DL11,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Đà Nẵng,,2,3,2022-11-26,2022-11-26
+46,DL12,DL12,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hải Phòng,,2,3,2022-11-26,2022-11-26
+47,DL13,DL13,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Bắc Giang,,2,3,2022-11-26,2022-11-26
+48,DL14,DL14,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Cà Mau,,2,3,2022-11-26,2022-11-26
+49,DL15,DL15,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,tranthanhtam.lovemeow@gmail.com,,Hà Tĩnh,,2,3,2022-11-26,2022-11-26

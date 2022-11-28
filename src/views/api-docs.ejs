@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="facebook.com/huy.JH16">
+    <title>API Documents</title>
+    <link rel="stylesheet" href="/stylesheets/api-docs.css">
+    <script src="/js/api-docs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <a id="go-top" href="#table-content" title="Go to Table of content">
+        <div>
+            <ion-icon name="caret-up-outline"></ion-icon>
+        </div>
+    </a>
+    <div class="nagivator" id="table-content">
+        <span>Table of contents</span>
+        <ul>
+            <% for (let apiIndex in data) {%>
+                <% let api=data[apiIndex] %>
+                    <li><a href='#<%=apiIndex%>'>
+                            <%=api.APIName%>
+                        </a></li>
+                    <% } %>
+        </ul>
+
+    </div>
+
+    <div class="main-container">
+        <ol>
+            <% for (let apiIndex in data) {%>
+                <% let api=data[apiIndex] %>
+                    <li class="api-container" id="<%=apiIndex%>">
+                        <span>
+                            <%=api.APIName%>
+                        </span>
+                        <ul class="description">
+                            <% for (let at of Object.keys(api)) {%>
+                                <li>
+                                    <span>
+                                        <%=at%>
+                                    </span>
+                                    <span> : </span>
+                                    <div>
+                                        <%=api[at]%>
+                                    </div>
+                                </li>
+                                <%}%>
+                        </ul>
+                    </li>
+                    <%}%>
+        </ol>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
