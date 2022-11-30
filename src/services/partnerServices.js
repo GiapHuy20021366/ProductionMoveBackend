@@ -135,7 +135,8 @@ async function createPartner(partner, token) {
                 })
 
                 // Success created
-                resolve(messageCreater(1, 'success', 'Create partner successful!'))
+
+                resolve(messageCreater(1, 'success', 'Create partner successful!', { id: newPartnerDB.id }))
 
                 // Send email 
                 ejs.renderFile(path.resolve(__dirname, EJS_PATH, 'email-create-partner.ejs'),

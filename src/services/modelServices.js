@@ -1,6 +1,7 @@
 import authenticationServices from './authenticationServices'
 import db from '../models/index'
 import { messageCreater } from './untilsServices'
+import { Op } from 'sequelize'
 
 /**
  * 
@@ -66,7 +67,7 @@ async function createModel(model, token) {
                     cityFuel: model.cityFuel ? model.cityFuel : null
                 })
 
-                resolve(messageCreater(1, 'success', 'Create model successful!'))
+                resolve(messageCreater(1, 'success', 'Create model successful!', newModelDB))
 
             } catch (error) {
                 // Error occurs when query database
@@ -81,6 +82,51 @@ async function createModel(model, token) {
     })
 }
 
+async function getListModel(listId, token) {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+
+            // Account not active
+            if (message.data.data.status === 1) {
+                reject(messageCreater(-7, 'error', `Account not active. Please active your account`))
+                return
+            }
+
+            // Account is cancel
+            if (message.data.data.status === 0) {
+                reject(messageCreater(-8, 'error', `Account is cancel`))
+                return
+            }
+            // Get infs of models
+            try {
+                const modelsDB = await db.Models.findAll({
+                    where: {
+                        id: {
+                            [Op.or]: listId
+                        }
+                    },
+                    include: [
+                        {
+                            model: db.Partners,
+                            as: 'factory',
+                            attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                        }
+                    ]
+                })
+                resolve(messageCreater(1, 'success', `Found ${modelsDB.length} models`, modelsDB))
+            } catch (error) {
+                console.log(error)
+                reject(messageCreater(-5, 'error', 'Database Error!'))
+            }
+
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+}
+
 module.exports = {
-    createModel
+    createModel,
+    getListModel
 }

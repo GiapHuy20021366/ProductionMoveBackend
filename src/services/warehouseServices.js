@@ -56,7 +56,7 @@ async function createWarehouse(warehouse, token) {
                     partnerId: message.data.data.id
                 })
 
-                resolve(messageCreater(1, 'success', 'Create warehouse successful!'))
+                resolve(messageCreater(1, 'success', 'Create warehouse successful!', newWarehouseDB))
 
             } catch (error) {
                 // Error occurs when query database

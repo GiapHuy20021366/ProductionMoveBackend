@@ -18,12 +18,12 @@ const configDevelopment = {
 const configQuery = {
   ...configDevelopment,
   query: {
-    raw: true,
-    plain: true,
-    nest: true
+    // raw: true,d
+    // plain: true,
+    // nest: true
   },
-  raw: true,
-  nest: true,
+  // raw: true,
+  // nest: true,
 }
 module.exports = {
   development: configDevelopment,
