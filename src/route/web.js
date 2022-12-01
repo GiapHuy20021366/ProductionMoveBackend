@@ -20,6 +20,7 @@ let initWebRouters = (app) => {
 
     router.post('/api/create-model', modelController.createNewModel)
     router.post('/api/get-models-by-ids', modelController.getModelsInf)
+    router.post('/api/get-models-by-query', modelController.getModelsByQuery)
 
     router.post('/api/create-warehouse', warehouseController.createNewWarehouse)
 

@@ -2,6 +2,7 @@ import db from '../models/index'
 import { Op } from 'sequelize'
 import { messageCreater } from './untilsServices'
 import authenticationServices from './authenticationServices'
+import queryServices from './queryServices'
 /**
  * 
  * @param {Array} products 
@@ -130,6 +131,7 @@ async function getProductsByIds(listId, token) {
         })
     })
 }
+
 
 
 module.exports = {

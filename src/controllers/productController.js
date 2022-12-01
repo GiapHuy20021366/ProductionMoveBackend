@@ -64,7 +64,7 @@ async function getProductsByIds(req, res) {
         const token = req.headers.authorization
         const message = await productServices.getProductsByIds(listId, token)
         return res.status(200).json(message)
-    } catch (error) {
+    } catch (err) {
         // Error caused by client
         if (err.code === -1 || err.code === -2) {
             return res.status(401).json(err)
