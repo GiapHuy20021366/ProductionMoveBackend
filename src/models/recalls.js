@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Recalls.belongsTo(models.Products, { foreignKey: 'productId', targetKey: 'id', as: 'product' })
         }
     };
     Recalls.init({

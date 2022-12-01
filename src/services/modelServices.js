@@ -127,6 +127,12 @@ async function getListModel(listId, token) {
     })
 }
 
+/**
+ * 
+ * @param {Object} query 
+ * @param {string} token 
+ * @returns {Promise}
+ */
 async function findModelsByQuery(query, token) {
     return new Promise(async (resolve, reject) => {
         await authenticationServices.verifyToken(token).then(async (message) => {
