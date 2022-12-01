@@ -17,6 +17,7 @@ let initWebRouters = (app) => {
     // Partners
     router.post('/api/login-partner', partnerController.partnerLogin)
     router.post('/api/create-partner', partnerController.createPartner)
+    router.post('/api/get-partners-by-query', partnerController.getPartnersByQuery)
 
     // Authentication
     router.get('/api/refresh-token', partnerController.refreshToken)
