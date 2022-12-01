@@ -185,7 +185,7 @@ async function findProductsByQuery(query, token) {
                     if (associates.purchase) {
                         const purchaseAssociate = {
                             model: db.Purchases,
-                            as: 'purcharse',
+                            as: 'purchare',
                         }
                         include.push(purchaseAssociate)
                         // Include customer infor
@@ -277,6 +277,7 @@ async function findProductsByQuery(query, token) {
 
 
 module.exports = {
+    name: 'productServices',
     createProducts,
     getProductsByIds,
     findProductsByQuery

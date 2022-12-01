@@ -252,6 +252,7 @@ async function findPartnersByQuery(query, token) {
 }
 
 module.exports = {
+    name: 'partnerServices',
     loginPartner,
     createPartner,
     refreshToken,

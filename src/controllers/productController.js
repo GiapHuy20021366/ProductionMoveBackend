@@ -1,4 +1,4 @@
-import productServices from '../services/productServices'
+import { productServices } from '../services/index'
 import { messageCreater } from '../services/untilsServices'
 /**
  * 
@@ -105,6 +105,7 @@ async function getProductsByQuery(req, res) {
 }
 
 module.exports = {
+    name: 'productController',
     createProducts,
     getProductsByIds,
     getProductsByQuery

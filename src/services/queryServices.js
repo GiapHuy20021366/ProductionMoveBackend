@@ -130,5 +130,6 @@ function parseQuery(query, model, exceptAttributes = []) {
 }
 
 module.exports = {
+    name: 'queryServices',
     parseQuery
 }

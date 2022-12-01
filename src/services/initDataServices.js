@@ -115,6 +115,7 @@ const initModels = (req, res) => {
 }
 
 module.exports = {
+    name: 'initDataServices',
     initPartners,
     initWarehouses,
     initModels

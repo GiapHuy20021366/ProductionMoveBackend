@@ -48,5 +48,6 @@ async function sendSimpleEmail(toEmails, subject = '', html = '', text = '') {
 
 
 module.exports = {
+    name: 'mailServices',
     sendSimpleEmail
 }

@@ -21,5 +21,6 @@ const readApiDocs = () => {
 }
 
 module.exports = {
+    name: 'apiDocsServices',
     readApiDocs
 }

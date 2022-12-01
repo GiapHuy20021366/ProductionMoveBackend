@@ -1,12 +1,16 @@
 import express from "express";
-import homeController from "../controllers/homeController"
-import ApiDocsController from "../controllers/ApiDocsController"
-import partnerController from '../controllers/partnerController'
-import modelController from '../controllers/modelController'
-import warehouseController from '../controllers/warehouseController'
-import productController from '../controllers/productController'
+import {
+    homeController,
+    apiDocsController,
+    partnerController,
+    modelController,
+    warehouseController,
+    productController,
+    customerController,
+    exportController,
+    maintainController
+} from '../controllers/index'
 
-import { initPartners, initWarehouses, initModels } from '../services/initDataServices'
 
 let router = express.Router();
 
@@ -29,14 +33,24 @@ let initWebRouters = (app) => {
 
     // Warehouses
     router.post('/api/create-warehouse', warehouseController.createNewWarehouse)
+    router.post('/api/get-warehouses-by-query', warehouseController.getWarehousesByQuery)
 
     // Products
     router.post('/api/create-products', productController.createProducts)
     router.post('/api/get-products-by-ids', productController.getProductsByIds)
     router.post('/api/get-products-by-query', productController.getProductsByQuery)
 
+    // Customers
+    router.post('/api/get-customers-by-query', customerController.getCustomersByQuery)
+
+    // Exports
+    router.post('/api/get-exports-by-query', exportController.getExportsByQuery)
+
+    // Maintains
+    router.post('/api/get-maintains-by-query', maintainController.getMaintainsByQuery)
+
     router.get('/', homeController.getHomePage)
-    router.get('/api/docs', ApiDocsController.getAPIDocs)
+    router.get('/api/docs', apiDocsController.getAPIDocs)
     router.get('/send-email', homeController.sendMail)
 
     return app.use("/", router)

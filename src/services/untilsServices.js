@@ -19,5 +19,6 @@ const messageCreater = (code = 0, status = 'nothing', message = '', data = {}) =
 }
 
 module.exports = {
+    name: 'untilsServies',
     messageCreater
 }

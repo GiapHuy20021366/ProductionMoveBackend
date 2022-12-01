@@ -188,6 +188,7 @@ async function findModelsByQuery(query, token) {
 }
 
 module.exports = {
+    name: 'modelServices',
     createModel,
     getListModel,
     findModelsByQuery

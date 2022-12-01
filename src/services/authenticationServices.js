@@ -59,6 +59,7 @@ async function verifyToken(token) {
 
 
 module.exports = {
+    name: 'authenticationServices',
     generateToken,
     verifyToken,
 }

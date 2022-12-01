@@ -1,4 +1,4 @@
-import modelServies from '../services/modelServices'
+import { modelServies } from '../services/index'
 import { messageCreater } from '../services/untilsServices'
 
 /**
@@ -91,6 +91,7 @@ async function getModelsByQuery(req, res) {
 
 
 module.exports = {
+    name: 'modelController',
     createNewModel,
     getModelsInf,
     getModelsByQuery

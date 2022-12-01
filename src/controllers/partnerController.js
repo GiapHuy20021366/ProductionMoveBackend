@@ -1,6 +1,6 @@
 'use strict'
 import { messageCreater } from '../services/untilsServices'
-import partnerServices from '../services/partnerServices'
+import { partnerServices } from '../services/index'
 
 /**
  * 
@@ -107,6 +107,7 @@ async function getPartnersByQuery(req, res) {
 
 
 module.exports = {
+    name: 'partnerController',
     partnerLogin,
     createPartner,
     refreshToken,

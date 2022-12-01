@@ -74,6 +74,7 @@ async function compare(plainText, hash) {
 
 
 module.exports = {
+    name: 'bcryptServices',
     hash,
     compare
 }

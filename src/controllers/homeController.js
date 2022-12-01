@@ -1,4 +1,5 @@
-import mailServices from '../services/mailServices'
+import { mailServices } from '../services/index'
+
 const getHomePage = async (req, res) => {
     try {
         return res.render('homepage.ejs', {
@@ -25,6 +26,7 @@ const sendMail = async (req, res) => {
 
 
 module.exports = {
+    name: 'homeController',
     getHomePage: getHomePage,
     sendMail
 }
