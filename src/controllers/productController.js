@@ -28,9 +28,12 @@ async function createProducts(req, res) {
         if (products.length === 0) {
             return res.status(400).json(messageCreater(-3, 'error', 'Length array of products must larger than 0'))
         }
-        for (let i in req.body.products) {
+        for (let i in products) {
             if (!products[i].modelId) {
                 return res.status(400).json(messageCreater(-3, 'error', `Missing parameters at index ${i}`))
+            }
+            if (!products[i].birth) {
+                products[i].birth = new Date()
             }
         }
 
@@ -54,13 +57,14 @@ async function getProductsByIds(req, res) {
 
     // Check enough parameters 
     // console.log(typeof (req.body.products))
-    if (!req?.body?.listId) {
-        return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
-    }
+    // if (!req?.body?.listId) {
+    //     return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
+    // }
 
     // get infs products
     try {
-        let listId = req.body.listId
+        let listId = req?.body?.listId
+        if (!listId) listId = []
         const token = req.headers.authorization
         const message = await productServices.getProductsByIds(listId, token)
         return res.status(200).json(message)
@@ -104,9 +108,68 @@ async function getProductsByQuery(req, res) {
     }
 }
 
+/**
+ * 
+ * @param {Oject} req - An Object represent request  
+ * @param {Object} res - An Object represent response
+ * @returns {Message} - Return a messsage 
+ */
+async function getCurrentLocationOfProducts(req, res) {
+    // Check does token exists
+    if (!req?.headers?.authorization) {
+        return res.status(403).json(messageCreater(-4, 'error', 'Missing parameters: Token not found'))
+    }
+
+    try {
+        let listId = req?.body?.listId
+        if (!listId) listId = []
+        const token = req.headers.authorization
+        const message = await productServices.getCurrentLocationOfProducts(listId, token)
+        return res.status(200).json(message)
+    } catch (err) {
+        // Error caused by client
+        if (err.code === -1 || err.code === -2) {
+            return res.status(401).json(err)
+        }
+        // console.log(err)
+        return res.status(500).json(err)
+    }
+}
+
+/**
+ * 
+ * @param {Oject} req - An Object represent request  
+ * @param {Object} res - An Object represent response
+ * @returns {Message} - Return a messsage 
+ */
+async function getCurrentProductsByQuery(req, res) {
+    // Check does token exists
+    if (!req?.headers?.authorization) {
+        return res.status(403).json(messageCreater(-4, 'error', 'Missing parameters: Token not found'))
+    }
+
+    const data = req.body
+    if (!data) {
+        return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
+    }
+
+    try {
+        const message = await productServices.getProductsCurrent(data, req.headers.authorization)
+        return res.status(200).json(message)
+    } catch (err) {
+        // Error caused by client
+        if (err.code === -1) {
+            return res.status(401).json(err)
+        }
+        return res.status(500).json(err)
+    }
+}
+
 module.exports = {
     name: 'productController',
     createProducts,
     getProductsByIds,
-    getProductsByQuery
+    getProductsByQuery,
+    getCurrentLocationOfProducts,
+    getCurrentProductsByQuery
 }

@@ -65,6 +65,18 @@ async function createProducts(products, token) {
 
                 // Create products
                 const productsDB = await db.Products.bulkCreate(products, { returning: true })
+                const productHolders = []
+                productsDB.forEach((product) => {
+                    const factoryId = modelIdToFactoryId[product.modelId]
+                    const productId = product.id
+                    productHolders.push({
+                        productId: productId,
+                        partner1Id: factoryId,
+                        partner2Id: -1,
+                        customerId: -1
+                    })
+                })
+                const productHoldersDB = await db.ProductHolders.bulkCreate(productHolders, { returning: true })
                 // Success created
                 resolve(messageCreater(1, 'success', 'Create products successful!', productsDB))
             } catch (error) {
@@ -274,11 +286,300 @@ async function findProductsByQuery(query, token) {
     })
 }
 
+/**
+ * 
+ * @param {Array} productDetails 
+ * @return {Array}
+ */
+function lastLocations(productDetails) {
+    const result = []
+    productDetails.forEach((product) => {
+        let lastLocationDetail = {}
+        // When beginning born
+        lastLocationDetail = {
+            title: 'FACTORY',
+            onBorn: true,
+            factory: product?.model?.factory,
+            date: product?.birth
+        }
+
+        // When purchase
+        if (product?.purchase) {
+            const purchase = product.purchase
+            if (purchase.date > lastLocationDetail.date) {
+                lastLocationDetail = {
+                    title: 'CUSTOMER',
+                    customer: purchase?.customer,
+                    date: purchase.date,
+                    onSelled: true
+                }
+            }
+
+        }
+
+        // When exports
+        if (product?.exports.length > 0) {
+            const lastExport = product.exports[0]
+            if (lastExport.date > lastLocationDetail.date) {
+                switch (lastExport.type) {
+                    case 4: // Return to customer
+                        lastLocationDetail = {
+                            title: 'CUSTOMER',
+                            customer: product?.purchase?.customer,
+                            type: lastExport.type,
+                            date: lastExport.date
+                        }
+                        break
+                    case 1:
+                    case 2:
+                    case 3:
+                        lastLocationDetail = {
+                            title: 'MOVE',
+                            sender: lastExport.sender,
+                            reciever: lastExport.reciever,
+                            moving: !lastExport.confirm,
+                            type: lastExport.type,
+                            date: lastExport.date
+                        }
+                        break
+                    default: break
+                }
+            }
+        }
+
+        // When maintains
+        if (product?.maintains.length > 0) {
+            const lastMaintain = product.maintains[0]
+            if (lastMaintain.date > lastLocationDetail.date) {
+                lastLocationDetail = {
+                    title: 'DEALER',
+                    onMaintaining: true,
+                    date: lastMaintain.date,
+                    dealer: product.purchase.dealer
+                }
+            }
+        }
+
+        // When recalls
+        if (product?.recalls.length > 0) {
+            const lastRecall = product.recalls[0]
+            if (lastRecall.date > lastLocationDetail.date) {
+                lastLocationDetail = {
+                    title: 'DEALER',
+                    onRecalling: true,
+                    date: lastRecall.date,
+                    dealer: product.purchase.dealer
+                }
+            }
+        }
+
+        lastLocationDetail.productId = product.id
+        result.push(lastLocationDetail)
+    })
+    return result
+
+}
+
+/**
+ * 
+ * @param {Array} listId 
+ * @return {Promise}
+ */
+async function getCurrentLocationOfProducts(listId, token) {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+            // Account not active
+            if (message.data.data.status === 1) {
+                reject(messageCreater(-7, 'error', `Account not active. Please active your account`))
+                return
+            }
+
+            // Account is cancel
+            if (message.data.data.status === 0) {
+                reject(messageCreater(-8, 'error', `Account is cancel`))
+                return
+            }
+
+            // Only admin
+            if (message.data.data.role !== 1) {
+                reject(messageCreater(-3, 'error', `Authentication failed: Not Permision`))
+                return
+            }
+
+            try {
+                // Get info products
+                const productsDB = await db.ProductHolders.findAll({
+                    where: {
+                        productId: {
+                            [Op.or]: listId
+                        }
+                    },
+                    include: [
+                        {
+                            model: db.Customers,
+                            as: 'customer'
+                        },
+                        {
+                            model: db.Partners,
+                            as: 'nowAt',
+                            attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                        },
+                        {
+                            model: db.Partners,
+                            as: 'willAt',
+                            attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                        }
+                    ],
+                    // raw: true,
+                    // nest: true
+                })
+                // console.log(productsDB)
+                // const result = lastLocations(productsDB)
+                // console.log(result)
+
+                resolve(messageCreater(1, 'success', 'Get locations successful!', productsDB))
+            } catch (error) {
+                console.log(error)
+                reject(messageCreater(-5, 'error', 'Database Error!'))
+            }
+
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+
+}
+
+/**
+ * 
+ */
+async function getProductsCurrent(query, token) {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+            const partnerId = message.data.data.id
+            const role = message.data.data.role
+            const permitQuery = { ...query }
+            let lookId = -1
+
+            // Deny querying on global operations
+            if (permitQuery?.operations) permitQuery.operations = {}
+            if (permitQuery?.attributes) permitQuery.attributes = {}
+
+            // Just admin or self partner
+            if (query.partnerId) {
+                if (query.partnerId !== partnerId && role !== 1) {
+                    reject(messageCreater(-3, 'error', `Authentication failed: Not Permision`))
+                    return
+                } else {
+                    lookId = query.partnerId
+                }
+            } else {
+                lookId = partnerId
+            }
+            permitQuery.operations = {
+                or: [
+                    {
+                        partner1Id: lookId
+                    },
+                    {
+                        partner2Id: lookId
+                    }
+                ]
+            }
+            console.log(permitQuery)
+            const where = queryServices.parseQuery(permitQuery, db.ProductHolders)
+            console.log(where)
+            const page = query?.pageOffset?.offset
+            const limit = query?.pageOffset?.limit
+            const include = []
+            const associates = query.associates
+            if (associates) {
+                // Include product inf
+                if (associates?.product) {
+                    const productAssociate = {
+                        model: db.Products,
+                        as: 'product',
+                        include: []
+                    }
+                    include.push(productAssociate)
+                    // Include model inf
+                    if (associates.product?.model) {
+                        const modelAssociate = {
+                            model: db.Models,
+                            as: 'model',
+                            include: []
+                        }
+                        productAssociate.include.push(modelAssociate)
+
+                        // Include factory inf
+                        if (associates.product.model?.factory) {
+                            const factoryAssociate = {
+                                model: db.Partners,
+                                as: 'factory',
+                                attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                            }
+                            modelAssociate.include.push(factoryAssociate)
+                        }
+                    }
+                }
+
+                // Include customer inf
+                if (associates?.customer) {
+                    const customerAssociate = {
+                        model: db.Customers,
+                        as: 'customer'
+                    }
+                    include.push(customerAssociate)
+                }
+
+                // Include nowAt
+                if (associates?.nowAt) {
+                    const nowAtAssociate = {
+                        model: db.Partners,
+                        as: 'nowAt',
+                        attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                    }
+                    include.push(nowAtAssociate)
+                }
+
+                // Include willAt
+                if (associates?.willAt) {
+                    const willAtAssociate = {
+                        model: db.Partners,
+                        as: 'willAt',
+                        attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                    }
+                    include.push(willAtAssociate)
+                }
+            }
+
+            const { count, rows } = await db.ProductHolders.findAndCountAll({
+                where: where,
+                include: include,
+                offset: page,
+                limit: limit
+            }).catch((error) => {
+                // console.log(error)
+                reject(messageCreater(-5, 'error', 'Database Error!'))
+            })
+
+            resolve(messageCreater(1, 'success', `Found ${rows.length} products`, { count, rows }))
+
+
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+}
 
 
 module.exports = {
     name: 'productServices',
+    getCurrentLocationOfProducts,
     createProducts,
     getProductsByIds,
-    findProductsByQuery
+    findProductsByQuery,
+    getProductsCurrent
 }

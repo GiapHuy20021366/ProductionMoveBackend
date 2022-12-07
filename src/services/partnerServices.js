@@ -213,6 +213,13 @@ async function findPartnersByQuery(query, token) {
                 return
             }
 
+            // Only admin
+            if (message.data.data.role !== 1) {
+                reject(messageCreater(-3, 'error', `Authentication failed: Not Permision`))
+                return
+            }
+
+
             try {
                 const where = queryServices.parseQuery(query, db.Models)
                 const page = query?.pageOffset?.offset
@@ -250,6 +257,7 @@ async function findPartnersByQuery(query, token) {
         })
     })
 }
+
 
 module.exports = {
     name: 'partnerServices',

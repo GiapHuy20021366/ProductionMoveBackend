@@ -8,7 +8,9 @@ import {
     productController,
     customerController,
     exportController,
-    maintainController
+    maintainController,
+    recallController,
+    messageController
 } from '../controllers/index'
 
 
@@ -39,15 +41,24 @@ let initWebRouters = (app) => {
     router.post('/api/create-products', productController.createProducts)
     router.post('/api/get-products-by-ids', productController.getProductsByIds)
     router.post('/api/get-products-by-query', productController.getProductsByQuery)
+    router.post('/api/get-location-of-products', productController.getCurrentLocationOfProducts)
+    router.post('/api/get-current-products-by-query', productController.getCurrentProductsByQuery)
 
     // Customers
     router.post('/api/get-customers-by-query', customerController.getCustomersByQuery)
 
     // Exports
     router.post('/api/get-exports-by-query', exportController.getExportsByQuery)
+    router.post('/api/export-products', exportController.exportProducts)
 
     // Maintains
     router.post('/api/get-maintains-by-query', maintainController.getMaintainsByQuery)
+
+    // Recalls
+    router.post('/api/get-recalls-by-query', recallController.getRecallsByQuery)
+
+    // Messages
+    router.post('/api/get-messages-by-query', messageController.getMessagesByQuery)
 
     router.get('/', homeController.getHomePage)
     router.get('/api/docs', apiDocsController.getAPIDocs)

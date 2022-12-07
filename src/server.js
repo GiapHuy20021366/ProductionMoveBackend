@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine"
 import initWebRouters from "./route/web"
 import connectDB from './config/connectDB'
-import configSocket from './config/configSocket'
+import { setupSocketIO } from './config/configSocket'
 import cors from 'cors'
 import http from 'http'
 
@@ -18,7 +18,7 @@ const socketIo = require('socket.io')(server, {
         origin: "*"
     }
 })
-configSocket(socketIo)
+setupSocketIO(socketIo)
 
 // config app
 app.use(bodyParser.json());

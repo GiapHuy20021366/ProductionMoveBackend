@@ -1,7 +1,10 @@
 "use strict"
+import ejs from 'ejs'
+import { messageCreater } from './untilsServices'
+const path = require('path')
+const EJS_PATH = '../views'
 require('dotenv').config()
 const nodemailer = require("nodemailer");
-import { messageCreater } from './untilsServices'
 
 /**
  * 
@@ -39,15 +42,40 @@ async function sendSimpleEmail(toEmails, subject = '', html = '', text = '') {
         }).then((success) => {
             resolve(messageCreater(1, 'success', `Send email to ${listEmails} successful`))
         }).catch((error) => {
+            console.log(error)
             reject(-6, 'error', 'Internal server error')
         })
     })
 
 }
 
+function sendMailWithForm(file, data, email, title) {
+    ejs.renderFile(
+        path.resolve(__dirname, EJS_PATH, file),
+        data,
+        (error, html) => {
+            if (html) {
+                sendSimpleEmail(
+                    email,
+                    title,
+                    html
+                ).then((message) => {
+                    // console.log(message)
+                }).catch((error) => {
+                    console.log(error)
+                })
+            } else {
+                console.log(error)
+            }
+        }
+    )
+}
+
+
 
 
 module.exports = {
     name: 'mailServices',
-    sendSimpleEmail
+    sendSimpleEmail,
+    sendMailWithForm
 }

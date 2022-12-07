@@ -42,13 +42,15 @@ async function getModelsInf(req, res) {
         return res.status(403).json(messageCreater(-4, 'error', 'Missing parameters: Token not found'))
     }
 
-    const data = req.body
-    if (!data?.listId) {
-        return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
-    }
+    // const data = req.body
+    // if (!data?.listId) {
+    //     return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
+    // }
 
     try {
-        const message = await modelServies.getListModel(data.listId, req.headers.authorization)
+        let listId = req?.body?.listId
+        if (!listId) listId = []
+        const message = await modelServies.getListModel(listId, req.headers.authorization)
         return res.status(200).json(message)
     } catch (err) {
         // Error caused by client

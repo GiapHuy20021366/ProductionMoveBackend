@@ -18,7 +18,7 @@ const configDevelopment = {
 const configQuery = {
   ...configDevelopment,
   query: {
-    // raw: true,d
+    // raw: true,
     // plain: true,
     // nest: true
   },

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div>Dear, <%=toPartner.name%>
+    </div>
+    <span>
+        <%=fromPartner.name%> (<%=fromPartner.email%>) exports <%=exports.length%> products to you.
+    </span><br>
+    <ul>
+        <% for (let index in exports) {%>
+            <% let _export=exports[index] %>
+                <% let _product=products[index] %>
+                    <li>
+                        <%=JSON.stringify(_export)%>
+                            <%=JSON.stringify(_product)%>
+                    </li>
+                    <% } %>
+    </ul>
+
+</body>
+
+</html>
