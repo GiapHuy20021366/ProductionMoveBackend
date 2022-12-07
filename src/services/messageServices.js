@@ -48,7 +48,7 @@ async function findMessagesByQuery(query, token) {
                     reject(messageCreater(-5, 'error', 'Database Error!'))
                 })
 
-                resolve(messageCreater(1, 'success', `Found ${rows.length} recalls`, { count, rows }))
+                resolve(messageCreater(1, 'success', `Found ${rows.length} messages`, { count, rows }))
             } catch (error) {
                 console.log(error)
                 reject(messageCreater(-2, 'error', error.message))

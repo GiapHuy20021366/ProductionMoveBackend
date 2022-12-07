@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 07, 2022 lúc 01:19 PM
+-- Thời gian đã tạo: Th12 07, 2022 lúc 02:57 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -568,7 +568,7 @@ CREATE TABLE IF NOT EXISTS `exports` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `exports_product_id_partner_sender_id_partner_reciever_id_type` (`productId`,`partnerSenderId`,`partnerRecieverId`,`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=1560 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1561 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `exports`
@@ -2086,7 +2086,8 @@ INSERT INTO `exports` (`id`, `productId`, `partnerSenderId`, `partnerRecieverId`
 (1556, 7, 4, 35, '2022-12-07 11:53:32', 0, 0, NULL, '2022-12-07 11:53:32', '2022-12-07 11:53:32'),
 (1557, 7, 4, 35, '2022-12-07 11:53:33', 0, 0, NULL, '2022-12-07 11:53:33', '2022-12-07 11:53:33'),
 (1558, 7, 4, 35, '2022-12-07 11:54:57', 0, 0, NULL, '2022-12-07 11:54:57', '2022-12-07 11:54:57'),
-(1559, 8, 4, 35, '2022-12-07 11:55:15', 0, 0, NULL, '2022-12-07 11:55:15', '2022-12-07 11:55:15');
+(1559, 8, 4, 35, '2022-12-07 11:55:15', 0, 0, NULL, '2022-12-07 11:55:15', '2022-12-07 11:55:15'),
+(1560, 8, 4, 35, '2022-12-07 20:27:03', 0, 0, NULL, '2022-12-07 20:27:03', '2022-12-07 20:27:03');
 
 -- --------------------------------------------------------
 
@@ -2326,43 +2327,14 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `messages_partner_id` (`partnerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `messages`
 --
 
 INSERT INTO `messages` (`id`, `partnerId`, `date`, `content`, `createdAt`, `updatedAt`) VALUES
-(1, 35, '2022-12-06 23:12:57', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:12:57.171Z\"}', '2022-12-06 23:12:57', '2022-12-06 23:12:57'),
-(2, 35, '2022-12-06 23:19:44', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:19:44.543Z\"}', '2022-12-06 23:19:44', '2022-12-06 23:19:44'),
-(3, 35, '2022-12-06 23:20:41', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:20:41.374Z\"}', '2022-12-06 23:20:41', '2022-12-06 23:20:41'),
-(4, 35, '2022-12-06 23:30:53', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:30:53.839Z\"}', '2022-12-06 23:30:53', '2022-12-06 23:30:53'),
-(5, 35, '2022-12-06 23:37:34', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:37:34.950Z\"}', '2022-12-06 23:37:34', '2022-12-06 23:37:34'),
-(6, 35, '2022-12-06 23:38:44', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:38:44.529Z\"}', '2022-12-06 23:38:44', '2022-12-06 23:38:44'),
-(7, 35, '2022-12-06 23:39:00', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:39:00.483Z\"}', '2022-12-06 23:39:00', '2022-12-06 23:39:00'),
-(8, 35, '2022-12-06 23:39:29', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:39:29.169Z\"}', '2022-12-06 23:39:29', '2022-12-06 23:39:29'),
-(9, 35, '2022-12-06 23:41:43', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:41:43.043Z\"}', '2022-12-06 23:41:43', '2022-12-06 23:41:43'),
-(10, 35, '2022-12-06 23:42:50', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:42:50.333Z\"}', '2022-12-06 23:42:50', '2022-12-06 23:42:50'),
-(11, 35, '2022-12-06 23:43:17', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:43:17.719Z\"}', '2022-12-06 23:43:17', '2022-12-06 23:43:17'),
-(12, 35, '2022-12-06 23:43:50', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:43:50.375Z\"}', '2022-12-06 23:43:50', '2022-12-06 23:43:50'),
-(13, 35, '2022-12-06 23:45:00', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:45:00.405Z\"}', '2022-12-06 23:45:00', '2022-12-06 23:45:00'),
-(14, 35, '2022-12-06 23:49:10', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:49:10.846Z\"}', '2022-12-06 23:49:10', '2022-12-06 23:49:10'),
-(15, 35, '2022-12-06 23:50:06', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:50:06.009Z\"}', '2022-12-06 23:50:06', '2022-12-06 23:50:06'),
-(16, 35, '2022-12-06 23:51:00', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:51:00.795Z\"}', '2022-12-06 23:51:00', '2022-12-06 23:51:00'),
-(17, 35, '2022-12-06 23:51:07', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:51:07.176Z\"}', '2022-12-06 23:51:07', '2022-12-06 23:51:07'),
-(18, 35, '2022-12-06 23:51:41', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:51:41.331Z\"}', '2022-12-06 23:51:41', '2022-12-06 23:51:41'),
-(19, 35, '2022-12-06 23:51:47', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:51:47.714Z\"}', '2022-12-06 23:51:47', '2022-12-06 23:51:47'),
-(20, 35, '2022-12-06 23:52:49', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:52:49.841Z\"}', '2022-12-06 23:52:49', '2022-12-06 23:52:49'),
-(21, 35, '2022-12-06 23:53:03', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:53:03.036Z\"}', '2022-12-06 23:53:03', '2022-12-06 23:53:03'),
-(22, 35, '2022-12-06 23:53:20', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:53:20.605Z\"}', '2022-12-06 23:53:20', '2022-12-06 23:53:20'),
-(23, 35, '2022-12-06 23:54:11', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:54:11.846Z\"}', '2022-12-06 23:54:11', '2022-12-06 23:54:11'),
-(24, 35, '2022-12-07 11:50:32', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"exports\":[{\"id\":1553,\"productId\":7,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:50', '2022-12-07 11:50:32', '2022-12-07 11:50:32'),
-(25, 35, '2022-12-07 11:50:32', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"exports\":[{\"id\":1554,\"productId\":7,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:50', '2022-12-07 11:50:32', '2022-12-07 11:50:32'),
-(26, 35, '2022-12-07 11:52:07', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"exports\":[{\"id\":1555,\"productId\":7,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:52', '2022-12-07 11:52:07', '2022-12-07 11:52:07'),
-(27, 35, '2022-12-07 11:53:32', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"exports\":[{\"id\":1556,\"productId\":7,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:53', '2022-12-07 11:53:32', '2022-12-07 11:53:32'),
-(28, 35, '2022-12-07 11:53:33', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"exports\":[{\"id\":1557,\"productId\":7,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:53', '2022-12-07 11:53:33', '2022-12-07 11:53:33'),
-(29, 35, '2022-12-07 11:54:57', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"exports\":[{\"id\":1558,\"productId\":7,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:54', '2022-12-07 11:54:57', '2022-12-07 11:54:57'),
-(30, 35, '2022-12-07 11:55:15', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[8],\"exports\":[{\"id\":1559,\"productId\":8,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-07T04:55', '2022-12-07 11:55:15', '2022-12-07 11:55:15');
+(1, 35, '2022-12-06 23:12:57', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:12:57.171Z\"}', '2022-12-06 23:12:57', '2022-12-06 23:12:57');
 
 -- --------------------------------------------------------
 

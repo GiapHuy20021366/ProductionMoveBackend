@@ -152,6 +152,7 @@ async function exportProducts(data, token) {
                 const partnerId = message.data.data.id
                 if (partnerId === toPartnerId) {
                     reject(messageCreater(-1, 'error', `Can't self export!`))
+                    return
                 }
                 const productHolders = await db.ProductHolders.findAll({
                     where: {
@@ -161,16 +162,20 @@ async function exportProducts(data, token) {
                     }
                 })
 
+                let validAll = true
                 productHolders.forEach((holder) => {
                     if (holder.partner1Id !== partnerId) {
                         reject(messageCreater(-1, 'error', `No permission to export product with id ${holder.productId}`))
+                        validAll = false
                         return
                     }
                     if (holder.partner1Id === partnerId && holder.partner2Id !== -1) {
                         reject(messageCreater(-1, 'error', `No permission to export product with id ${holder.productId}`))
+                        validAll = false
                         return
                     }
                 })
+                if (!validAll) return // Some product invalid to export
 
                 const exports = []
                 listId.forEach((productId) => {
