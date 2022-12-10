@@ -296,6 +296,105 @@ async function exportProducts(data, token) {
     })
 }
 
+/**
+ * 
+ * @param {Object} query 
+ * @param {string} token 
+ * @returns {Promise}
+ */
+async function confirmExports(exportIds, token) {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+            const partnerId = message.data.data.id
+            try {
+                const exportsDB = await db.Exports.findAll({
+                    where: {
+                        id: {
+                            [Op.or]: exportIds
+                        }
+                    }
+                })
+
+                let invalidExport = null
+                let isValidAllExport = exportsDB.every((export_) => {
+                    if (export_.partnerRecieverId !== partnerId) {
+                        invalidExport = export_
+                        return false
+                    }
+                    return true
+                })
+                if (!isValidAllExport) {
+                    reject(messageCreater(-1, 'error', `No permission to confirm export with id ${invalidExport.id}`))
+                    return
+                }
+
+                // Find All sender id
+                const allSenderId = []
+                exportsDB.forEach((export_) => {
+                    if (!allSenderId.includes(export_.partnerSenderId)) {
+                        allSenderId.push(export_.partnerSenderId)
+                    }
+                })
+
+                // Load senders inf from db
+                const partnersDB = await db.Partners.findAll({
+                    where: {
+                        id: {
+                            [Op.or]: allSenderId
+                        }
+                    }
+                })
+
+                // some inf to send emails to senders
+                const mapIdToPartner = {} // Map partnerId to partner
+                const mapIdToExports = {} // Map partnerId to exports
+                partnersDB.forEach((partner) => {
+                    mapIdToPartner[partner.id] = partner
+                    mapIdToExports[partnerId] = []
+                })
+                exportsDB.forEach((export_) => {
+                    mapIdToExports[export_.partnerSenderId].push(export_)
+                })
+
+                // Update exports
+                exportsDB.forEach(async (export_) => {
+                    export_.confirm = true
+                    await export_.save()
+                })
+
+                // Update product Holders
+                const listProductId = []
+                exportsDB.forEach((export_) => {
+                    listProductId.push(export_.productId)
+                })
+                const productHolders = await db.ProductHolders.findAll({
+                    where: {
+                        productId: {
+                            [Op.or]: listProductId
+                        }
+                    }
+                })
+                productHolders.forEach(async (holder) => {
+                    holder.partner1Id = partnerId
+                    holder.partner2Id = -1
+                    await holder.save()
+                })
+
+                // Send email to senders
+                partnersDB.forEach((partner) => {
+                    // Send email
+                })
+            } catch (error) {
+                console.log(error)
+                reject(messageCreater(-2, 'error', error.message))
+            }
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+}
+
 module.exports = {
     name: 'exportServices',
     findExportsByQuery,

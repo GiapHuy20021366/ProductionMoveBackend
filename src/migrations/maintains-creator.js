@@ -27,7 +27,7 @@ module.exports = {
                 type: Sequelize.DATE
             }
         }).then(() => {
-            queryInterface.addIndex('Maintains', ['productId', 'partnerId'])
+            queryInterface.addIndex('Maintains', ['productId'])
         });
     },
     down: async (queryInterface, Sequelize) => {
