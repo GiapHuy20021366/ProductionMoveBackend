@@ -72,8 +72,47 @@ async function exportProducts(req, res) {
     }
 }
 
+/**
+ * 
+ * @param {Oject} req - An Object represent request  
+ * @param {Object} res - An Object represent response
+ * @returns {Message} - Return a messsage 
+ */
+async function confirmExportProducts(req, res) {
+    // Check does token exists
+    if (!req?.headers?.authorization) {
+        return res.status(403).json(messageCreater(-4, 'error', 'Missing parameters: Token not found'))
+    }
+
+    // Check enough parameters 
+    // console.log(typeof (req.body.products))
+    if (!req?.body?.exportIds) {
+        return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
+    }
+
+    // Confirm Export products
+    try {
+        let exportIds = req.body.exportIds
+        const token = req.headers.authorization
+
+        if (exportIds.length === 0) {
+            return res.status(400).json(messageCreater(-3, 'error', 'Length array of exportIds must larger than 0'))
+        }
+        const message = await exportServices.confirmExports(exportIds, token)
+        return res.status(200).json(message)
+    } catch (err) {
+        // Error caused by client
+        if (err.code === -1 || err.code === -2) {
+            return res.status(401).json(err)
+        }
+        // console.log(err)
+        return res.status(500).json(err)
+    }
+}
+
 module.exports = {
     name: 'exportController',
     getExportsByQuery,
-    exportProducts
+    exportProducts,
+    confirmExportProducts
 }

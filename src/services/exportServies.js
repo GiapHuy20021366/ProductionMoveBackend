@@ -311,7 +311,8 @@ async function confirmExports(exportIds, token) {
                     where: {
                         id: {
                             [Op.or]: exportIds
-                        }
+                        },
+                        confirm: false
                     }
                 })
 
@@ -319,10 +320,12 @@ async function confirmExports(exportIds, token) {
                 let isValidAllExport = exportsDB.every((export_) => {
                     if (export_.partnerRecieverId !== partnerId) {
                         invalidExport = export_
+
                         return false
                     }
                     return true
                 })
+
                 if (!isValidAllExport) {
                     reject(messageCreater(-1, 'error', `No permission to confirm export with id ${invalidExport.id}`))
                     return
@@ -336,6 +339,11 @@ async function confirmExports(exportIds, token) {
                     }
                 })
 
+                if (allSenderId.length === 0) {
+                    reject(messageCreater(-1, 'error', `Already confirm all`))
+                    return
+                }
+
                 // Load senders inf from db
                 const partnersDB = await db.Partners.findAll({
                     where: {
@@ -345,12 +353,17 @@ async function confirmExports(exportIds, token) {
                     }
                 })
 
+                // This partner inf
+                const thisPartner = await db.Partners.findByPk(partnerId, {
+                    attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                })
+
                 // some inf to send emails to senders
                 const mapIdToPartner = {} // Map partnerId to partner
                 const mapIdToExports = {} // Map partnerId to exports
                 partnersDB.forEach((partner) => {
                     mapIdToPartner[partner.id] = partner
-                    mapIdToExports[partnerId] = []
+                    mapIdToExports[partner.id] = []
                 })
                 exportsDB.forEach((export_) => {
                     mapIdToExports[export_.partnerSenderId].push(export_)
@@ -383,7 +396,54 @@ async function confirmExports(exportIds, token) {
                 // Send email to senders
                 partnersDB.forEach((partner) => {
                     // Send email
+                    const relatedExports = mapIdToExports[partner.id]
+                    mailServices.sendMailWithForm(
+                        'recieved-product-notification.ejs',
+                        {
+                            toPartner: partner,
+                            fromPartner: thisPartner,
+                            exports: relatedExports
+                        },
+                        partner.email,
+                        `${thisPartner.name} confirm recieved products`
+                    )
                 })
+
+                // Send email to customer
+                // Do somethings
+
+                // Create messages and up to database
+                partnersDB.forEach(async (partner) => {
+                    const listId = []
+                    const relatedExports = mapIdToExports[partner.id]
+                    relatedExports.forEach((export_) => {
+                        listId.push(export_.productId)
+                    })
+                    const content = {
+                        type: 'EXPORT_CONFIRM_NOTIFICATION',
+                        from: thisPartner,
+                        listId: listId,
+                        exports: relatedExports,
+                        date: new Date()
+                    }
+                    // Create message form
+                    const messageForm = {
+                        partnerId: partner.id,
+                        content: JSON.stringify(content),
+                        date: new Date(),
+                    }
+                    const messageDB = await db.Messages.create(messageForm)
+                    const messagePing = {
+                        id: messageDB.id,
+                        date: messageForm.date,
+                        content: content
+                    }
+                    // Ping message to client
+                    pingSocket(partner.id, messagePing, messageTitles.NEW_MESSAGE)
+                })
+
+                resolve(messageCreater(1, 'success', `Confirm exports successful!`))
+
             } catch (error) {
                 console.log(error)
                 reject(messageCreater(-2, 'error', error.message))
@@ -398,5 +458,6 @@ async function confirmExports(exportIds, token) {
 module.exports = {
     name: 'exportServices',
     findExportsByQuery,
-    exportProducts
+    exportProducts,
+    confirmExports
 }

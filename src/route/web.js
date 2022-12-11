@@ -50,6 +50,7 @@ let initWebRouters = (app) => {
     // Exports
     router.post('/api/get-exports-by-query', exportController.getExportsByQuery)
     router.post('/api/export-products', exportController.exportProducts)
+    router.post('/api/confirm-export-products', exportController.confirmExportProducts)
 
     // Maintains
     router.post('/api/get-maintains-by-query', maintainController.getMaintainsByQuery)

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 07, 2022 lúc 02:57 PM
+-- Thời gian đã tạo: Th12 11, 2022 lúc 05:19 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `databackend`
 --
-CREATE DATABASE IF NOT EXISTS `databackend` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `databackend`;
 
 -- --------------------------------------------------------
 
@@ -563,12 +561,12 @@ CREATE TABLE IF NOT EXISTS `exports` (
   `date` datetime DEFAULT NULL,
   `type` int(11) NOT NULL,
   `confirm` tinyint(1) DEFAULT NULL,
-  `note` varchar(255) DEFAULT NULL,
+  `note` text DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `exports_product_id_partner_sender_id_partner_reciever_id_type` (`productId`,`partnerSenderId`,`partnerRecieverId`,`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=1561 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1563 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `exports`
@@ -2059,35 +2057,10 @@ INSERT INTO `exports` (`id`, `productId`, `partnerSenderId`, `partnerRecieverId`
 (1480, 237, 33, 6, '2005-02-16 00:00:00', 3, 1, NULL, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (1481, 238, 33, 6, '2005-02-17 00:00:00', 3, 1, NULL, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (1482, 239, 33, 6, '2005-02-18 00:00:00', 3, 1, NULL, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
-(1532, 7, 4, 35, '2022-12-06 23:20:41', 0, 0, NULL, '2022-12-06 23:20:41', '2022-12-06 23:20:41'),
-(1533, 7, 4, 35, '2022-12-06 23:30:53', 0, 0, NULL, '2022-12-06 23:30:53', '2022-12-06 23:30:53'),
-(1534, 7, 4, 35, '2022-12-06 23:37:34', 0, 0, NULL, '2022-12-06 23:37:34', '2022-12-06 23:37:34'),
-(1535, 7, 4, 35, '2022-12-06 23:38:44', 0, 0, NULL, '2022-12-06 23:38:44', '2022-12-06 23:38:44'),
-(1536, 7, 4, 35, '2022-12-06 23:39:00', 0, 0, NULL, '2022-12-06 23:39:00', '2022-12-06 23:39:00'),
-(1537, 7, 4, 35, '2022-12-06 23:39:29', 0, 0, NULL, '2022-12-06 23:39:29', '2022-12-06 23:39:29'),
-(1538, 7, 4, 35, '2022-12-06 23:41:43', 0, 0, NULL, '2022-12-06 23:41:43', '2022-12-06 23:41:43'),
-(1539, 7, 4, 35, '2022-12-06 23:42:50', 0, 0, NULL, '2022-12-06 23:42:50', '2022-12-06 23:42:50'),
-(1540, 7, 4, 35, '2022-12-06 23:43:17', 0, 0, NULL, '2022-12-06 23:43:17', '2022-12-06 23:43:17'),
-(1541, 7, 4, 35, '2022-12-06 23:43:50', 0, 0, NULL, '2022-12-06 23:43:50', '2022-12-06 23:43:50'),
-(1542, 7, 4, 35, '2022-12-06 23:45:00', 0, 0, NULL, '2022-12-06 23:45:00', '2022-12-06 23:45:00'),
-(1543, 7, 4, 35, '2022-12-06 23:49:10', 0, 0, NULL, '2022-12-06 23:49:10', '2022-12-06 23:49:10'),
-(1544, 7, 4, 35, '2022-12-06 23:50:05', 0, 0, NULL, '2022-12-06 23:50:05', '2022-12-06 23:50:05'),
-(1545, 7, 4, 35, '2022-12-06 23:51:00', 0, 0, NULL, '2022-12-06 23:51:00', '2022-12-06 23:51:00'),
-(1546, 7, 4, 35, '2022-12-06 23:51:07', 0, 0, NULL, '2022-12-06 23:51:07', '2022-12-06 23:51:07'),
-(1547, 7, 4, 35, '2022-12-06 23:51:41', 0, 0, NULL, '2022-12-06 23:51:41', '2022-12-06 23:51:41'),
-(1548, 7, 4, 35, '2022-12-06 23:51:47', 0, 0, NULL, '2022-12-06 23:51:47', '2022-12-06 23:51:47'),
-(1549, 7, 4, 35, '2022-12-06 23:52:49', 0, 0, NULL, '2022-12-06 23:52:49', '2022-12-06 23:52:49'),
-(1550, 7, 4, 35, '2022-12-06 23:53:03', 0, 0, NULL, '2022-12-06 23:53:03', '2022-12-06 23:53:03'),
-(1551, 7, 4, 35, '2022-12-06 23:53:20', 0, 0, NULL, '2022-12-06 23:53:20', '2022-12-06 23:53:20'),
-(1552, 7, 4, 35, '2022-12-06 23:54:11', 0, 0, NULL, '2022-12-06 23:54:11', '2022-12-06 23:54:11'),
-(1553, 7, 4, 35, '2022-12-07 11:50:31', 0, 0, NULL, '2022-12-07 11:50:31', '2022-12-07 11:50:31'),
-(1554, 7, 4, 35, '2022-12-07 11:50:32', 0, 0, NULL, '2022-12-07 11:50:32', '2022-12-07 11:50:32'),
-(1555, 7, 4, 35, '2022-12-07 11:52:07', 0, 0, NULL, '2022-12-07 11:52:07', '2022-12-07 11:52:07'),
-(1556, 7, 4, 35, '2022-12-07 11:53:32', 0, 0, NULL, '2022-12-07 11:53:32', '2022-12-07 11:53:32'),
-(1557, 7, 4, 35, '2022-12-07 11:53:33', 0, 0, NULL, '2022-12-07 11:53:33', '2022-12-07 11:53:33'),
-(1558, 7, 4, 35, '2022-12-07 11:54:57', 0, 0, NULL, '2022-12-07 11:54:57', '2022-12-07 11:54:57'),
-(1559, 8, 4, 35, '2022-12-07 11:55:15', 0, 0, NULL, '2022-12-07 11:55:15', '2022-12-07 11:55:15'),
-(1560, 8, 4, 35, '2022-12-07 20:27:03', 0, 0, NULL, '2022-12-07 20:27:03', '2022-12-07 20:27:03');
+(1558, 7, 4, 35, '2022-12-07 11:54:57', 0, 1, NULL, '2022-12-07 11:54:57', '2022-12-10 23:15:19'),
+(1560, 8, 4, 35, '2022-12-07 20:27:03', 0, 1, NULL, '2022-12-07 20:27:03', '2022-12-10 23:21:16'),
+(1561, 9, 4, 35, '2022-12-10 23:33:09', 0, 1, NULL, '2022-12-10 23:33:09', '2022-12-10 23:35:54'),
+(1562, 10, 4, 35, '2022-12-10 23:33:59', 0, 0, NULL, '2022-12-10 23:33:59', '2022-12-10 23:33:59');
 
 -- --------------------------------------------------------
 
@@ -2099,7 +2072,7 @@ CREATE TABLE IF NOT EXISTS `maintains` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productId` int(11) NOT NULL,
   `date` datetime DEFAULT NULL,
-  `note` varchar(255) DEFAULT NULL,
+  `note` text DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -2322,19 +2295,21 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `partnerId` int(11) NOT NULL,
   `date` datetime DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
+  `content` text DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `messages_partner_id` (`partnerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `messages`
 --
 
 INSERT INTO `messages` (`id`, `partnerId`, `date`, `content`, `createdAt`, `updatedAt`) VALUES
-(1, 35, '2022-12-06 23:12:57', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[7],\"date\":\"2022-12-06T16:12:57.171Z\"}', '2022-12-06 23:12:57', '2022-12-06 23:12:57');
+(36, 35, '2022-12-10 23:33:09', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[9],\"exports\":[{\"id\":1561,\"productId\":9,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-10T16:33:09.197Z\",\"type\":0,\"confirm\":false,\"createdAt\":\"2022-12-10T16:33:09.197Z\",\"updatedAt\":\"2022-12-10T16:33:09.197Z\"}],\"date\":\"2022-12-10T16:33:09.286Z\"}', '2022-12-10 23:33:09', '2022-12-10 23:33:09'),
+(37, 35, '2022-12-10 23:34:00', '{\"type\":\"EXPORT_NOTIFICATION\",\"from\":{\"id\":4,\"name\":\"AC\",\"email\":\"giapvanhuy2002@gmail.com\",\"phone\":null,\"address\":\"Hồ Chí Minh\",\"role\":2},\"listId\":[10],\"exports\":[{\"id\":1562,\"productId\":10,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-10T16:33:59.969Z\",\"type\":0,\"confirm\":false,\"createdAt\":\"2022-12-10T16:33:59.969Z\",\"updatedAt\":\"2022-12-10T16:33:59.969Z\"}],\"date\":\"2022-12-10T16:34:00.000Z\"}', '2022-12-10 23:34:00', '2022-12-10 23:34:00'),
+(38, 4, '2022-12-10 23:35:54', '{\"type\":\"EXPORT_CONFIRM_NOTIFICATION\",\"from\":{\"id\":35,\"name\":\"DL1\",\"email\":\"tranthanhtam.lovemeow@gmail.com\",\"phone\":null,\"address\":\"Hà Tĩnh\",\"role\":3},\"listId\":[9],\"exports\":[{\"id\":1561,\"productId\":9,\"partnerSenderId\":4,\"partnerRecieverId\":35,\"date\":\"2022-12-10T16:33:09.000Z\",\"type\":0,\"confirm\":true,\"note\":null,\"createdAt\":\"2022-12-10T16:33:09.000Z\",\"updatedAt\":\"2022-12-10T16:35:54.663Z\"}],\"date\":\"2022-12-10T16:35:54.678Z\"}', '2022-12-10 23:35:54', '2022-12-10 23:35:54');
 
 -- --------------------------------------------------------
 
@@ -9685,10 +9660,10 @@ INSERT INTO `productholders` (`id`, `productId`, `partner1Id`, `partner2Id`, `cu
 (4, 4, 35, -1, 4, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (5, 5, 35, -1, 5, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (6, 6, 35, -1, 6, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
-(7, 7, 4, 35, 7, '2022-11-26 00:00:00', '2022-12-06 23:19:44'),
-(8, 8, 4, 35, 8, '2022-11-26 00:00:00', '2022-12-07 11:55:15'),
-(9, 9, 4, -1, 9, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
-(10, 10, 4, -1, 10, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
+(7, 7, 35, -1, 7, '2022-11-26 00:00:00', '2022-12-10 23:15:19'),
+(8, 8, 35, -1, 8, '2022-11-26 00:00:00', '2022-12-10 23:21:16'),
+(9, 9, 35, -1, 9, '2022-11-26 00:00:00', '2022-12-10 23:35:54'),
+(10, 10, 4, 35, 10, '2022-11-26 00:00:00', '2022-12-10 23:33:59'),
 (11, 11, 4, -1, 11, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (12, 12, 35, -1, 12, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (13, 13, 35, -1, 13, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
@@ -14582,7 +14557,7 @@ CREATE TABLE IF NOT EXISTS `recalls` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `productId` int(11) NOT NULL,
   `date` datetime DEFAULT NULL,
-  `note` varchar(255) DEFAULT NULL,
+  `note` text DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -14633,35 +14608,6 @@ INSERT INTO `recalls` (`id`, `productId`, `date`, `note`, `createdAt`, `updatedA
 (38, 237, '2005-02-07 00:00:00', NULL, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (39, 238, '2005-02-08 00:00:00', NULL, '2022-11-26 00:00:00', '2022-11-26 00:00:00'),
 (40, 239, '2005-02-09 00:00:00', NULL, '2022-11-26 00:00:00', '2022-11-26 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `sequelizemeta`
---
-
-CREATE TABLE IF NOT EXISTS `sequelizemeta` (
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`name`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `sequelizemeta`
---
-
-INSERT INTO `sequelizemeta` (`name`) VALUES
-('customers-creator.js'),
-('exports-creator.js'),
-('maintains-creator.js'),
-('messages-cretor.js'),
-('models-creator.js'),
-('partners-creator.js'),
-('product_holders-creator.js'),
-('products-creator.js'),
-('purchases-creator.js'),
-('recalls-cretor.js'),
-('warehouses-creator.js');
 
 -- --------------------------------------------------------
 

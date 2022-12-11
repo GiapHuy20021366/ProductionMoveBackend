@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         date: DataTypes.DATE,
         type: DataTypes.INTEGER,
         confirm: DataTypes.BOOLEAN,
-        note: DataTypes.STRING
+        note: DataTypes.TEXT
     }, {
         sequelize,
         modelName: 'Exports',

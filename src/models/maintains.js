@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     Maintains.init({
         productId: DataTypes.INTEGER,
         date: DataTypes.DATE,
-        note: DataTypes.STRING
+        note: DataTypes.TEXT
     }, {
         sequelize,
         modelName: 'Maintains',
