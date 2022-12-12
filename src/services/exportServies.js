@@ -455,9 +455,107 @@ async function confirmExports(exportIds, token) {
     })
 }
 
+async function returnProductsToCustomer(productIds, token) {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+            // Account not active
+            if (message.data.data.status === 1) {
+                reject(messageCreater(-7, 'error', `Account not active. Please active your account`))
+                return
+            }
+
+            // Account is cancel
+            if (message.data.data.status === 0) {
+                reject(messageCreater(-8, 'error', `Account is cancel`))
+                return
+            }
+
+            // Only dealer
+            if (message.data.data.role !== 3) {
+                reject(messageCreater(-3, 'error', `Authentication failed: Not Permision`))
+                return
+            }
+
+            const thisPartnerId = message.data.data.id
+
+            // Get product holders information to check does product is now in dealer
+            const productHoldersDB = await db.ProductHolders.findAll({
+                where: {
+                    productId: {
+                        [Op.or]: productIds
+                    }
+                }
+            })
+
+            productHoldersDB.forEach((holder) => {
+                // Does product are in this dealer
+                if (holder.partner1Id !== thisPartnerId || holder.partner2Id !== -1) {
+                    reject(messageCreater(-1, 'error', `No permission to return product with id ${holder.productId}`))
+                    return
+                }
+            })
+
+            // Get informations about product and it's customer
+            const productsDB = await db.Products.findAll({
+                where: {
+                    id: {
+                        [Op.or]: productIds
+                    }
+                },
+                include: [
+                    {
+                        model: db.Purchases,
+                        as: 'purchase',
+                        include: [
+                            {
+                                model: db.Customers,
+                                as: 'customer'
+                            }
+                        ]
+                    }
+                ]
+            })
+            // Check does product have purchase
+            productsDB.forEach((product) => {
+                if (!product?.purchase?.customer) {
+                    reject(messageCreater(-1, 'error', `No permission to return product with id ${product.id}`))
+                    return
+                }
+            })
+
+            // Update status of product holder
+            productHoldersDB.forEach(async (holder) => {
+                holder.partner1Id = -1
+                await holder.save()
+            })
+
+            // Send email to customers
+            productsDB.forEach((product) => {
+                const customer = product.purchase.customer
+                mailServices.sendMailWithForm(
+                    'return-product-notification.ejs',
+                    {
+                        product: product
+                    },
+                    customer.email,
+                    'Sản phẩm đã được trả về cho quý khách, cảm ơn đã sử dụng dịch vụ của BigCorp'
+                )
+            })
+
+            resolve(messageCreater(1, 'success', `Return products successful!`))
+
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+}
+
+
 module.exports = {
     name: 'exportServices',
     findExportsByQuery,
     exportProducts,
-    confirmExports
+    confirmExports,
+    returnProductsToCustomer
 }

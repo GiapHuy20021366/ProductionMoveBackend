@@ -457,6 +457,18 @@ async function getCurrentLocationOfProducts(listId, token) {
 async function getProductsCurrent(query, token) {
     return new Promise(async (resolve, reject) => {
         await authenticationServices.verifyToken(token).then(async (message) => {
+            // Account not active
+            if (message.data.data.status === 1) {
+                reject(messageCreater(-7, 'error', `Account not active. Please active your account`))
+                return
+            }
+
+            // Account is cancel
+            if (message.data.data.status === 0) {
+                reject(messageCreater(-8, 'error', `Account is cancel`))
+                return
+            }
+
             const partnerId = message.data.data.id
             const role = message.data.data.role
             const permitQuery = { ...query }
@@ -573,6 +585,7 @@ async function getProductsCurrent(query, token) {
         })
     })
 }
+
 
 
 module.exports = {
