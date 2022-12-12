@@ -60,6 +60,7 @@ let initWebRouters = (app) => {
 
     // Recalls
     router.post('/api/get-recalls-by-query', recallController.getRecallsByQuery)
+    router.post('/api/recall-products', recallController.recallProducts)
 
     // Messages
     router.post('/api/get-messages-by-query', messageController.getMessagesByQuery)
