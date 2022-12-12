@@ -478,71 +478,76 @@ async function returnProductsToCustomer(productIds, token) {
 
             const thisPartnerId = message.data.data.id
 
-            // Get product holders information to check does product is now in dealer
-            const productHoldersDB = await db.ProductHolders.findAll({
-                where: {
-                    productId: {
-                        [Op.or]: productIds
+            try {
+                // Get product holders information to check does product is now in dealer
+                const productHoldersDB = await db.ProductHolders.findAll({
+                    where: {
+                        productId: {
+                            [Op.or]: productIds
+                        }
                     }
-                }
-            })
+                })
 
-            productHoldersDB.forEach((holder) => {
-                // Does product are in this dealer
-                if (holder.partner1Id !== thisPartnerId || holder.partner2Id !== -1) {
-                    reject(messageCreater(-1, 'error', `No permission to return product with id ${holder.productId}`))
-                    return
-                }
-            })
-
-            // Get informations about product and it's customer
-            const productsDB = await db.Products.findAll({
-                where: {
-                    id: {
-                        [Op.or]: productIds
+                productHoldersDB.forEach((holder) => {
+                    // Does product are in this dealer
+                    if (holder.partner1Id !== thisPartnerId || holder.partner2Id !== -1) {
+                        reject(messageCreater(-1, 'error', `No permission to return product with id ${holder.productId}`))
+                        return
                     }
-                },
-                include: [
-                    {
-                        model: db.Purchases,
-                        as: 'purchase',
-                        include: [
-                            {
-                                model: db.Customers,
-                                as: 'customer'
-                            }
-                        ]
-                    }
-                ]
-            })
-            // Check does product have purchase
-            productsDB.forEach((product) => {
-                if (!product?.purchase?.customer) {
-                    reject(messageCreater(-1, 'error', `No permission to return product with id ${product.id}`))
-                    return
-                }
-            })
+                })
 
-            // Update status of product holder
-            productHoldersDB.forEach(async (holder) => {
-                holder.partner1Id = -1
-                await holder.save()
-            })
-
-            // Send email to customers
-            productsDB.forEach((product) => {
-                const customer = product.purchase.customer
-                mailServices.sendMailWithForm(
-                    'return-product-notification.ejs',
-                    {
-                        product: product
+                // Get informations about product and it's customer
+                const productsDB = await db.Products.findAll({
+                    where: {
+                        id: {
+                            [Op.or]: productIds
+                        }
                     },
-                    customer.email,
-                    'Sản phẩm đã được trả về cho quý khách, cảm ơn đã sử dụng dịch vụ của BigCorp'
-                )
-            })
+                    include: [
+                        {
+                            model: db.Purchases,
+                            as: 'purchase',
+                            include: [
+                                {
+                                    model: db.Customers,
+                                    as: 'customer'
+                                }
+                            ]
+                        }
+                    ]
+                })
+                // Check does product have purchase
+                productsDB.forEach((product) => {
+                    if (!product?.purchase?.customer) {
+                        reject(messageCreater(-1, 'error', `No permission to return product with id ${product.id}`))
+                        return
+                    }
+                })
 
-            resolve(messageCreater(1, 'success', `Return products successful!`))
+                // Update status of product holder
+                productHoldersDB.forEach(async (holder) => {
+                    holder.partner1Id = -1
+                    await holder.save()
+                })
+
+                // Send email to customers
+                productsDB.forEach((product) => {
+                    const customer = product.purchase.customer
+                    mailServices.sendMailWithForm(
+                        'return-product-notification.ejs',
+                        {
+                            product: product
+                        },
+                        customer.email,
+                        'Sản phẩm đã được trả về cho quý khách, cảm ơn đã sử dụng dịch vụ của BigCorp'
+                    )
+                })
+
+                resolve(messageCreater(1, 'success', `Return products successful!`))
+            } catch (error) {
+                console.log(error)
+                reject(messageCreater(-2, 'error', error.message))
+            }
 
         }).catch((error) => {
             // Token error

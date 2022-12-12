@@ -56,6 +56,7 @@ let initWebRouters = (app) => {
 
     // Maintains
     router.post('/api/get-maintains-by-query', maintainController.getMaintainsByQuery)
+    router.post('/api/maintain-products', maintainController.maintainProducts)
 
     // Recalls
     router.post('/api/get-recalls-by-query', recallController.getRecallsByQuery)
