@@ -183,7 +183,7 @@ async function createPartner(partner, token) {
 async function refreshToken(token) {
     return new Promise(async (resolve, reject) => {
         await authenticationServices.verifyToken(token).then(async (message) => {
-            const token = authenticationServices.generateToken(message.data)
+            const token = authenticationServices.generateToken(message.data.data)
             resolve(messageCreater(1, 'success', 'Token refresh successful!', { token }))
         }).catch((error) => {
             // Token error
