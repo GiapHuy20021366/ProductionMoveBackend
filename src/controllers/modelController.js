@@ -1,4 +1,4 @@
-import { modelServies } from '../services/index'
+import { modelServices } from '../services/index'
 import { messageCreater } from '../services/untilsServices'
 
 /**
@@ -19,7 +19,7 @@ async function createNewModel(req, res) {
     }
 
     try {
-        const message = await modelServies.createModel(data, req.headers.authorization)
+        const message = await modelServices.createModel(data, req.headers.authorization)
         return res.status(200).json(message)
     } catch (err) {
         // Error caused by client, model name existed
@@ -50,7 +50,7 @@ async function getModelsInf(req, res) {
     try {
         let listId = req?.body?.listId
         if (!listId) listId = []
-        const message = await modelServies.getListModel(listId, req.headers.authorization)
+        const message = await modelServices.getListModel(listId, req.headers.authorization)
         return res.status(200).json(message)
     } catch (err) {
         // Error caused by client
@@ -79,13 +79,14 @@ async function getModelsByQuery(req, res) {
     }
 
     try {
-        const message = await modelServies.findModelsByQuery(data, req.headers.authorization)
+        const message = await modelServices.findModelsByQuery(data, req.headers.authorization)
         return res.status(200).json(message)
     } catch (err) {
         // Error caused by client
         if (err.code === -1) {
             return res.status(401).json(err)
         }
+        console.log(err)
         return res.status(500).json(err)
     }
 }

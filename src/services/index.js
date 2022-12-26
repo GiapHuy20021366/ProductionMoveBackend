@@ -12,6 +12,7 @@ fs
     .forEach(file => {
         const service = require(path.join(__dirname, file));
         services[service.name] = service
+        // console.log(service.name)
     });
 
 module.exports = services;
