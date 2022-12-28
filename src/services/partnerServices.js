@@ -42,6 +42,7 @@ async function loginPartner(partner) {
                 })
                 resolve(messageCreater(1, 'success', 'Login successful!', {
                     token,
+                    id: partnerDB.id,
                     name: partnerDB.name,
                     userName: partnerDB.userName,
                     email: partnerDB.email,
