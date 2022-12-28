@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
             Products.hasMany(models.Recalls, { foreignKey: 'productId', as: 'recalls' })
             Products.hasMany(models.Maintains, { foreignKey: 'productId', as: 'maintains' })
             Products.hasMany(models.Exports, { foreignKey: 'productId', as: 'exports' })
+            Products.hasOne(models.ProductHolders, { foreignKey: 'productId', as: 'holders' })
         }
     };
     Products.init({

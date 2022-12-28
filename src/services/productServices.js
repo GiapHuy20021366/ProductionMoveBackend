@@ -197,7 +197,7 @@ async function findProductsByQuery(query, token) {
                     if (associates.purchase) {
                         const purchaseAssociate = {
                             model: db.Purchases,
-                            as: 'purchare',
+                            as: 'purchase',
                         }
                         include.push(purchaseAssociate)
                         // Include customer infor
@@ -261,6 +261,31 @@ async function findProductsByQuery(query, token) {
                         }
                         include.push(maintainAssociate)
                     }
+
+                    // Include holders infor
+                    if (associates.holders) {
+                        const holdersAssociate = {
+                            model: db.ProductHolders,
+                            as: 'holders',
+                            include: [
+                                {
+                                    model: db.Partners,
+                                    as: 'nowAt',
+                                    attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                                },
+                                {
+                                    model: db.Partners,
+                                    as: 'willAt',
+                                    attributes: ['id', 'name', 'email', 'phone', 'address', 'role']
+                                },
+                                {
+                                    model: db.Customers,
+                                    as: 'customer'
+                                }
+                            ]
+                        }
+                        include.push(holdersAssociate)
+                    }
                 }
 
                 const { count, rows } = await db.Products.findAndCountAll({
@@ -269,13 +294,13 @@ async function findProductsByQuery(query, token) {
                     offset: page,
                     limit: limit
                 }).catch((error) => {
-                    // console.log(error)
+                    console.log(error)
                     reject(messageCreater(-5, 'error', 'Database Error!'))
                 })
 
                 resolve(messageCreater(1, 'success', `Found ${rows.length} products`, { count, rows }))
             } catch (error) {
-                // console.log(error)
+                console.log(error)
                 reject(messageCreater(-2, 'error', error.message))
             }
 

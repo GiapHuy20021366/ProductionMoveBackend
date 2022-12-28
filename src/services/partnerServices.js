@@ -238,7 +238,7 @@ async function findPartnersByQuery(query, token) {
                 const { count, rows } = await db.Partners.findAndCountAll({
                     where: where,
                     include: include,
-                    attributes: ['id', 'name', 'email', 'phone', 'address', 'role'],
+                    attributes: ['id', 'name', 'email', 'phone', 'address', 'role', 'userName', 'createdAt', 'updatedAt', 'status'],
                     offset: page,
                     limit: limit
                 }).catch((error) => {
