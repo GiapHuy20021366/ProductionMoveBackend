@@ -1,4 +1,4 @@
-﻿id,userName,name,password,email,phone,address,birth,status,role,createdAt,updatedAt
+id,userName,name,password,email,phone,address,birth,status,role,createdAt,updatedAt
 1,BigCorp,BigCorp,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,huygiapboy@gmail.com,0384850710,Hà Nội,,2,1,2022-11-26,2022-11-26
 2,QuynhNT,QuynhNT,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,quynhnt@gmail.com,,Hà Nội,,2,1,2022-11-26,2022-11-26
 3,DoMinh,DoMinh,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,dominh@gmail.com,,Hà Nội,,2,1,2022-11-26,2022-11-26
@@ -24,7 +24,7 @@
 23,Bilenkin,Bilenkin,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Đà Nẵng,,2,2,2022-11-26,2022-11-26
 24,Bitter,Bitter,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Hải Phòng,,2,2,2022-11-26,2022-11-26
 25,BMW,BMW,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,giapvanhuy2002@gmail.com,,Bắc Giang,,2,2,2022-11-26,2022-11-26
-26,TTBH2,TTBH1,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Cà Mau,,2,4,2022-11-26,2022-11-26
+26,TTBH1,TTBH1,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Cà Mau,,2,4,2022-11-26,2022-11-26
 27,TTBH2,TTBH2,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Thái Bình,,2,4,2022-11-26,2022-11-26
 28,TTBH3,TTBH3,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Nghệ An,,2,4,2022-11-26,2022-11-26
 29,TTBH4,TTBH4,$2b$10$8xKs/rcH4zZy/yOHYbABPOIFaytrAYkGYGlYPCf/Rr2fuXea2EWFe,hoanghuy7345@gmail.com,,Hà Tĩnh,,2,4,2022-11-26,2022-11-26

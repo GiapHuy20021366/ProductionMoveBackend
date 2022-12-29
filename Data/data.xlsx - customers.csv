@@ -1,4 +1,4 @@
-﻿id,name,address,email,phone,cardId,createdAt,updatedAt
+id,name,address,email,phone,cardId,createdAt,updatedAt
 1,Customer1,,huygiapboy@gmail.com,,0000001,2022-11-26,2022-11-26
 2,Customer2,,huygiapboy@gmail.com,,0000002,2022-11-26,2022-11-26
 3,Customer3,,huygiapboy@gmail.com,,0000003,2022-11-26,2022-11-26

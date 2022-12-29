@@ -524,9 +524,9 @@ async function getProductsCurrent(query, token) {
                     }
                 ]
             }
-            console.log(permitQuery)
+            // console.log(permitQuery)
             const where = queryServices.parseQuery(permitQuery, db.ProductHolders)
-            console.log(where)
+            // console.log(where)
             const page = query?.pageOffset?.offset
             const limit = query?.pageOffset?.limit
             const include = []
@@ -600,6 +600,8 @@ async function getProductsCurrent(query, token) {
                 // console.log(error)
                 reject(messageCreater(-5, 'error', 'Database Error!'))
             })
+
+
 
             resolve(messageCreater(1, 'success', `Found ${rows.length} products`, { count, rows }))
 

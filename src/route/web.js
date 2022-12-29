@@ -10,7 +10,8 @@ import {
     exportController,
     maintainController,
     recallController,
-    messageController
+    messageController,
+    purchaseController
 } from '../controllers/index'
 
 
@@ -24,6 +25,7 @@ let initWebRouters = (app) => {
     router.post('/api/login-partner', partnerController.partnerLogin)
     router.post('/api/create-partner', partnerController.createPartner)
     router.post('/api/get-partners-by-query', partnerController.getPartnersByQuery)
+    router.post('/api/get-resources', partnerController.getResources)
 
     // Authentication
     router.get('/api/refresh-token', partnerController.refreshToken)
@@ -64,6 +66,9 @@ let initWebRouters = (app) => {
 
     // Messages
     router.post('/api/get-messages-by-query', messageController.getMessagesByQuery)
+
+    // Purchase
+    router.post('/api/sold-product', purchaseController.soldProduct)
 
     router.get('/', homeController.getHomePage)
     router.get('/api/docs', apiDocsController.getAPIDocs)

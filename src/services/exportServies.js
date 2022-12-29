@@ -243,6 +243,13 @@ async function exportProducts(data, token) {
                                 'Your product is now exporting'
                             )
                             break
+                        case 2:
+                            mailServices.sendSimpleEmail(
+                                productIdToCustomer[_export.customerId].email,
+                                'Sản phẩm bị phát hiện lỗi trong quá trinh bảo hành sản phẩm',
+                                'Chúng tôi sẽ liên lạc và cam kết hoàn trả sản phẩm mới sớm nhất có thể. <br/> Xin lỗi quý khách.'
+                            )
+                            break
                     }
                 })
 
@@ -523,6 +530,22 @@ async function returnProductsToCustomer(productIds, token) {
                         return
                     }
                 })
+
+                // Create Exports
+                const exportData = []
+                productsDB.forEach((product) => {
+                    const _export = {
+                        productId: product.id,
+                        partnerSenderId: thisPartnerId,
+                        partnerRecieverId: product.purchase.customer.id,
+                        date: new Date(),
+                        type: 4,
+                        note: '',
+                        confirm: true
+                    }
+                    exportData.push(_export)
+                })
+                await db.Exports.bulkCreate(exportData)
 
                 // Update status of product holder
                 productHoldersDB.forEach(async (holder) => {

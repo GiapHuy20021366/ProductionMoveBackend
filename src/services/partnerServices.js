@@ -6,6 +6,7 @@ import { Op } from 'sequelize'
 import mailServices from './mailServices'
 import ejs from 'ejs'
 import queryServices from './queryServices'
+import { resolve } from 'path'
 const path = require('path')
 const EJS_PATH = '../views'
 
@@ -259,11 +260,101 @@ async function findPartnersByQuery(query, token) {
     })
 }
 
+const getResources = async (resources, token) => {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+            const resData = {}
+            if (resources?.holders) {
+                const holders = resources.holders
+                const holdersRes = {
+                    agencies: [],
+                    maintainCenters: [],
+                    factories: []
+                }
+                resData.holders = holdersRes
+
+                try {
+                    const partnersDB = await db.Partners.findAll({
+                        attributes: ['id', 'name', 'role']
+                    })
+                    partnersDB.forEach((partner) => {
+                        switch (partner.role) {
+                            case 2: {
+                                if (holders.factory) {
+                                    holdersRes.factories.push(partner)
+                                }
+                                break
+                            }
+                            case 3: {
+                                if (holders.agency) {
+                                    holdersRes.agencies.push(partner)
+                                }
+                                break
+                            }
+                            case 4: {
+                                if (holders.maintainCenter) {
+                                    holdersRes.maintainCenters.push(partner)
+                                }
+                                break
+                            }
+                        }
+                    })
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+
+            if (resources?.modelAttributes) {
+                const modelAttributes = resources.modelAttributes
+                const modelsDB = await db.Models.findAll({
+                    attributes: ['generation', 'bodyType', 'engineType', 'boostType', 'series']
+                })
+                const generations = []
+                const bodyTypes = []
+                const engineTypes = []
+                const boostTypes = []
+                const series = []
+
+                const modelAttributesRes = {
+                    generations, bodyTypes, engineTypes, boostTypes, series
+                }
+                resData.modelAttributes = modelAttributesRes
+
+                modelsDB.forEach((model) => {
+                    const { generation, bodyType, engineType, boostType } = model
+                    const seri = model.series
+                    if (generation && modelAttributes.generation && !generations.includes(generation)) {
+                        generations.push(generation)
+                    }
+                    if (bodyType && modelAttributes.bodyType && !bodyTypes.includes(bodyType)) {
+                        bodyTypes.push(bodyType)
+                    }
+                    if (engineType && modelAttributes.engineType && !engineTypes.includes(engineType)) {
+                        engineTypes.push(engineType)
+                    }
+                    if (boostType && modelAttributes.boostType && !boostTypes.includes(boostType)) {
+                        boostTypes.push(boostType)
+                    }
+                    if (seri && modelAttributes.series && !series.includes(seri)) {
+                        series.push(seri)
+                    }
+                })
+
+
+            }
+            resolve(messageCreater(1, 'success', '', resData))
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+}
 
 module.exports = {
     name: 'partnerServices',
     loginPartner,
     createPartner,
     refreshToken,
-    findPartnersByQuery
+    findPartnersByQuery,
+    getResources
 }

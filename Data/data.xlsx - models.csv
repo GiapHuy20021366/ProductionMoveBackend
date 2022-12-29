@@ -1,4 +1,4 @@
-﻿id,factoryId,name,signName,generation,birth,series,trim,bodyType,numberOfSeats,length,width,height,engineType,boostType,maxSpeed,accceleration,cityFuel,createdAt,updatedAt
+id,factoryId,name,signName,generation,birth,series,trim,bodyType,numberOfSeats,length,width,height,engineType,boostType,maxSpeed,accceleration,cityFuel,createdAt,updatedAt
 1,4,ACE,SignName1,1 generation,1993-01-01,Cabriolet,3.5 MT,Cabriolet,2,4420,1870,1300,Gasoline,Turbo,83,5,20,2022-11-26,2022-11-26
 2,4,ACE,SignName2,1 generation,1993-01-01,Cabriolet,4.6 MT,Cabriolet,2,4420,1870,1300,Gasoline,,90,5,15,2022-11-26,2022-11-26
 3,4,ACE,SignName3,1 generation,1993-01-01,Cabriolet,4.9 AT,Cabriolet,2,4420,1870,1300,Gasoline,,101,,,2022-11-26,2022-11-26
@@ -744,7 +744,7 @@
 743,7,XD3,SignName743,F25 [redesign],2014-01-01,Crossover,3.0 BITURBO SWITCH-TRONIC AWD,Crossover,5,4651,1901,1670,Diesel,Biturbo,84,4.9,7.3,2022-11-26,2022-11-26
 744,7,XD3,SignName744,G01,2018-01-01,SUV 5 doors,3.0 AT 4WD,,,,,,,,,,,2022-11-26,2022-11-26
 745,7,XD4,SignName745,G02,2018-01-01,SUV 5 doors,3.0 AT 4WD,,,,,,,,,,,2022-11-26,2022-11-26
-746,7,A110,SignName746,1 generation,1961-01-01,Coupe,"	1.6 MT ",,,,,,,,,,,2022-11-26,2022-11-26
+746,7,A110,SignName746,1 generation,1961-01-01,Coupe,	1.6 MT ,,,,,,,,,,,2022-11-26,2022-11-26
 747,7,A110,SignName747,1 generation,1961-01-01,Coupe,1.1 MT,,,,,,,,,,,2022-11-26,2022-11-26
 748,7,A110,SignName748,1 generation,1961-01-01,Coupe,1.3 MT,,,,,,,,,,,2022-11-26,2022-11-26
 749,7,A110,SignName749,1 generation,1961-01-01,Coupe,1.3 MT,,,,,,,,,,,2022-11-26,2022-11-26
@@ -1267,21 +1267,21 @@
 1266,10,80,SignName1266,8C/B4,1991-01-01,wagon,2.8 AT,Wagon,5,4482,1695,1408,Gasoline,,82,8,11.8,2022-11-26,2022-11-26
 1267,10,80,SignName1267,8C/B4,1991-01-01,wagon,2.8 MT,Wagon,5,4482,1695,1408,Gasoline,,82,8,11.8,2022-11-26,2022-11-26
 1268,10,80,SignName1268,8C/B4,1991-01-01,wagon,2.8 MT quattro,Wagon,5,4482,1695,1408,Gasoline,,82,8,11.8,2022-11-26,2022-11-26
-1269,10,80,SignName1269,B1,1900-01-01,Sedan,1.3 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1270,10,80,SignName1270,B1,1900-01-01,Sedan,1.3 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1271,10,80,SignName1271,B1,1900-01-01,Sedan,1.3 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1272,10,80,SignName1272,B1,1900-01-01,Sedan,1.3 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1273,10,80,SignName1273,B1,1900-01-01,Sedan,1.5 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1274,10,80,SignName1274,B1,1900-01-01,Sedan,1.5 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1275,10,80,SignName1275,B1,1900-01-01,Sedan,1.5 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1276,10,80,SignName1276,B1,1900-01-01,Sedan,1.5 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1277,10,80,SignName1277,B1,1900-01-01,Sedan,1.6 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1278,10,80,SignName1278,B1,1900-01-01,Sedan,1.6 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1279,10,80,SignName1279,B1,1900-01-01,Sedan,1.6 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1280,10,80,SignName1280,B1,1900-01-01,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1281,10,80,SignName1281,B1,1900-01-01,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1282,10,80,SignName1282,B1,1900-01-01,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
-1283,10,80,SignName1283,B1,1900-01-01,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1269,10,80,SignName1269,B1,1899-12-31,Sedan,1.3 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1270,10,80,SignName1270,B1,1899-12-31,Sedan,1.3 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1271,10,80,SignName1271,B1,1899-12-31,Sedan,1.3 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1272,10,80,SignName1272,B1,1899-12-31,Sedan,1.3 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1273,10,80,SignName1273,B1,1899-12-31,Sedan,1.5 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1274,10,80,SignName1274,B1,1899-12-31,Sedan,1.5 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1275,10,80,SignName1275,B1,1899-12-31,Sedan,1.5 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1276,10,80,SignName1276,B1,1899-12-31,Sedan,1.5 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1277,10,80,SignName1277,B1,1899-12-31,Sedan,1.6 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1278,10,80,SignName1278,B1,1899-12-31,Sedan,1.6 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1279,10,80,SignName1279,B1,1899-12-31,Sedan,1.6 AT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1280,10,80,SignName1280,B1,1899-12-31,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1281,10,80,SignName1281,B1,1899-12-31,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1282,10,80,SignName1282,B1,1899-12-31,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
+1283,10,80,SignName1283,B1,1899-12-31,Sedan,1.6 MT,,5,4175,1600,1362,,,,,,2022-11-26,2022-11-26
 1284,10,80,SignName1284,B2,1978-01-01,Sedan,1.3 MT,,5,4410,1680,1360,petrol,none,75,17.5,10.3,2022-11-26,2022-11-26
 1285,10,80,SignName1285,B2,1978-01-01,Sedan,1.3 MT,,5,4410,1680,1360,petrol,none,75,16.9,9.9,2022-11-26,2022-11-26
 1286,10,80,SignName1286,B2,1978-01-01,Sedan,1.6 AT,,5,4410,1680,1360,diesel,none,79,23.3,8,2022-11-26,2022-11-26
@@ -2324,21 +2324,21 @@
 2335,10,A4,SignName2323,B9,2015-01-01,wagon 5 doors,3.0 AMT,,5,4725,1842,1434,diesel,turbine,83,6.7,4.9,2022-11-26,2022-11-26
 2336,10,A4,SignName2324,B9,2015-01-01,wagon 5 doors,3.0 AMT 4WD,,5,4725,1842,1434,diesel,turbine,83,6.4,5,2022-11-26,2022-11-26
 2337,10,A4,SignName2325,B9,2015-01-01,wagon 5 doors,3.0 AT 4WD,,5,4725,1842,1434,diesel,turbine,83,5.4,5.6,2022-11-26,2022-11-26
-2338,10,A4,SignName2326,B9 [redesign],1900-01-01,Sedan,2.0 AMT,,5,4762,1847,1428,diesel,turbine,81,9.5,4.7,2022-11-26,2022-11-26
-2339,10,A4,SignName2327,B9 [redesign],1900-01-01,Sedan,2.0 AMT,,5,4762,1847,1428,petrol,turbine,82,8.9,7.5,2022-11-26,2022-11-26
-2340,10,A4,SignName2328,B9 [redesign],1900-01-01,Sedan,2.0 AMT,,5,4762,1847,1428,diesel,turbine,81,8.2,4.5,2022-11-26,2022-11-26
-2341,10,A4,SignName2329,B9 [redesign],1900-01-01,Sedan,2.0 AMT 4WD,,5,4762,1847,1428,petrol,turbine,82,7.3,7.7,2022-11-26,2022-11-26
-2342,10,A4,SignName2330,B9 [redesign],1900-01-01,Sedan,2.0 AMT 4WD,,5,4762,1847,1428,petrol,turbine,82,5.8,8.7,2022-11-26,2022-11-26
-2343,10,A4,SignName2331,B9 [redesign],1900-01-01,Sedan,2.0 MT,,5,4762,1847,1428,petrol,turbine,82,8.6,8.5,2022-11-26,2022-11-26
-2344,10,A4,SignName2332,B9 [redesign],1900-01-01,Sedan,3.0 AT 4WD,,5,4762,1847,1428,diesel,turbine,83,6,6.9,2022-11-26,2022-11-26
-2345,10,A4,SignName2333,B9 [redesign],1900-01-01,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,diesel,turbine,81,9.8,4.7,2022-11-26,2022-11-26
-2346,10,A4,SignName2334,B9 [redesign],1900-01-01,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,petrol,turbine,82,9.2,7.5,2022-11-26,2022-11-26
-2347,10,A4,SignName2335,B9 [redesign],1900-01-01,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,diesel,turbine,81,8.5,4.6,2022-11-26,2022-11-26
-2348,10,A4,SignName2336,B9 [redesign],1900-01-01,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,Liquefied coal hydrogen gases,turbine,82,8.4,5.3,2022-11-26,2022-11-26
-2349,10,A4,SignName2337,B9 [redesign],1900-01-01,wagon 5 doors,2.0 AMT 4WD,,5,4762,1847,1435,petrol,turbine,82,7.5,7.6,2022-11-26,2022-11-26
-2350,10,A4,SignName2338,B9 [redesign],1900-01-01,wagon 5 doors,2.0 AMT 4WD,,5,4762,1847,1435,petrol,turbine,82,6,8.7,2022-11-26,2022-11-26
-2351,10,A4,SignName2339,B9 [redesign],1900-01-01,wagon 5 doors,2.0 MT,,5,4762,1847,1435,petrol,turbine,82,8.9,8.5,2022-11-26,2022-11-26
-2352,10,A4,SignName2340,B9 [redesign],1900-01-01,wagon 5 doors,3.0 AT 4WD,,5,4762,1847,1435,diesel,turbine,83,6.1,6.9,2022-11-26,2022-11-26
+2338,10,A4,SignName2326,B9 [redesign],1899-12-31,Sedan,2.0 AMT,,5,4762,1847,1428,diesel,turbine,81,9.5,4.7,2022-11-26,2022-11-26
+2339,10,A4,SignName2327,B9 [redesign],1899-12-31,Sedan,2.0 AMT,,5,4762,1847,1428,petrol,turbine,82,8.9,7.5,2022-11-26,2022-11-26
+2340,10,A4,SignName2328,B9 [redesign],1899-12-31,Sedan,2.0 AMT,,5,4762,1847,1428,diesel,turbine,81,8.2,4.5,2022-11-26,2022-11-26
+2341,10,A4,SignName2329,B9 [redesign],1899-12-31,Sedan,2.0 AMT 4WD,,5,4762,1847,1428,petrol,turbine,82,7.3,7.7,2022-11-26,2022-11-26
+2342,10,A4,SignName2330,B9 [redesign],1899-12-31,Sedan,2.0 AMT 4WD,,5,4762,1847,1428,petrol,turbine,82,5.8,8.7,2022-11-26,2022-11-26
+2343,10,A4,SignName2331,B9 [redesign],1899-12-31,Sedan,2.0 MT,,5,4762,1847,1428,petrol,turbine,82,8.6,8.5,2022-11-26,2022-11-26
+2344,10,A4,SignName2332,B9 [redesign],1899-12-31,Sedan,3.0 AT 4WD,,5,4762,1847,1428,diesel,turbine,83,6,6.9,2022-11-26,2022-11-26
+2345,10,A4,SignName2333,B9 [redesign],1899-12-31,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,diesel,turbine,81,9.8,4.7,2022-11-26,2022-11-26
+2346,10,A4,SignName2334,B9 [redesign],1899-12-31,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,petrol,turbine,82,9.2,7.5,2022-11-26,2022-11-26
+2347,10,A4,SignName2335,B9 [redesign],1899-12-31,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,diesel,turbine,81,8.5,4.6,2022-11-26,2022-11-26
+2348,10,A4,SignName2336,B9 [redesign],1899-12-31,wagon 5 doors,2.0 AMT,,5,4762,1847,1435,Liquefied coal hydrogen gases,turbine,82,8.4,5.3,2022-11-26,2022-11-26
+2349,10,A4,SignName2337,B9 [redesign],1899-12-31,wagon 5 doors,2.0 AMT 4WD,,5,4762,1847,1435,petrol,turbine,82,7.5,7.6,2022-11-26,2022-11-26
+2350,10,A4,SignName2338,B9 [redesign],1899-12-31,wagon 5 doors,2.0 AMT 4WD,,5,4762,1847,1435,petrol,turbine,82,6,8.7,2022-11-26,2022-11-26
+2351,10,A4,SignName2339,B9 [redesign],1899-12-31,wagon 5 doors,2.0 MT,,5,4762,1847,1435,petrol,turbine,82,8.9,8.5,2022-11-26,2022-11-26
+2352,10,A4,SignName2340,B9 [redesign],1899-12-31,wagon 5 doors,3.0 AT 4WD,,5,4762,1847,1435,diesel,turbine,83,6.1,6.9,2022-11-26,2022-11-26
 2353,10,A4 allroad,SignName2341,4 generation (B8),2009-01-01,wagon 5-doors,2.0 AMT 4WD,,5,4721,1841,1495,petrol,turbine,82,6.9,10.4,2022-11-26,2022-11-26
 2354,10,A4 allroad,SignName2342,4 generation (B8),2009-01-01,wagon 5-doors,2.0 MT 4WD,,5,4721,1841,1495,diesel,turbine,81,8.9,7.7,2022-11-26,2022-11-26
 2355,10,A4 allroad,SignName2343,4 generation (B8),2009-01-01,wagon 5-doors,2.0 MT 4WD,,5,4721,1841,1495,petrol,turbine,82,6.9,10.2,2022-11-26,2022-11-26
@@ -3444,8 +3444,8 @@
 3455,10,Q7,SignName3443,4M,2015-01-01,Crossover,3.0 TDI Tiptronic quattro,Crossover,5,5052,1968,1741,Diesel,Turbo,83,6.9,7.3,2022-11-26,2022-11-26
 3456,10,Q7,SignName3444,4M,2015-01-01,Crossover,3.0 TFSI Tiptronic quattro,Crossover,5,5052,1968,1741,Gasoline,Turbo,89,6.1,9.4,2022-11-26,2022-11-26
 3457,10,Q7,SignName3445,4M,2015-01-01,Q7,2.0 AT 4WD,,"5, 7",5052,1968,1740,petrol,turbine,82,6.9,8.8,2022-11-26,2022-11-26
-3458,10,Q7,SignName3446,4M,2015-01-01,Q7,3.0 AT  4WD,,4/6/2007,5089,1983,1737,Gasoline,Turbo,83,,,2022-11-26,2022-11-26
-3461,10,Q7,SignName3447,4M,2015-01-01,Q7,3.0 AT  4WD,,4/6/2007,5089,1983,1737,Gasoline,Turbo,84,,,2022-11-26,2022-11-26
+3458,10,Q7,SignName3446,4M,2015-01-01,Q7,3.0 AT  4WD,,39178,5089,1983,1737,Gasoline,Turbo,83,,,2022-11-26,2022-11-26
+3461,10,Q7,SignName3447,4M,2015-01-01,Q7,3.0 AT  4WD,,39178,5089,1983,1737,Gasoline,Turbo,84,,,2022-11-26,2022-11-26
 3466,10,Q7,SignName3448,4M,2015-01-01,Q7,3.0 AT 4WD,,"5, 7",5052,1968,1740,diesel,turbine,83,7.1,6.1,2022-11-26,2022-11-26
 3467,10,Q7,SignName3449,4M,2015-01-01,Q7,3.0 AT 4WD,,"5, 7",5052,1968,1740,diesel,turbine,83,6.9,7.3,2022-11-26,2022-11-26
 3468,10,Q7,SignName3450,4M [redesign],2019-01-01,Crossover,3.0 AT 4WD,,"5, 7",5063,1970,1741,diesel,turbine,83,7.1,7.7,2022-11-26,2022-11-26
@@ -3499,12 +3499,12 @@
 3516,10,R8,SignName3498,2 generation,2015-01-01,Spyder roadster,5.2 FSI quattro plus S tronic,Roadster,2,4426,1940,1244,Gasoline,,84,3.3,17.8,2022-11-26,2022-11-26
 3517,10,R8,SignName3499,2 generation,2015-01-01,Spyder roadster,5.2 FSI quattro S tronic,Roadster,2,4426,1940,1244,Gasoline,,84,3.6,16.6,2022-11-26,2022-11-26
 3518,10,R8,SignName3500,2 generation,2015-01-01,Spyder roadster,V10 quattro S tronic,Roadster,2,4426,1940,1244,Gasoline,,84,3.7,16.8,2022-11-26,2022-11-26
-3519,10,R8,SignName3501,2 generation [redesign],1900-01-01,Coupe,5.2 AMT,,2,4429,1940,1236,petrol,none,84,3.7,19.5,2022-11-26,2022-11-26
-3520,10,R8,SignName3502,2 generation [redesign],1900-01-01,Coupe,5.2 AMT 4WD,,2,4429,1940,1236,petrol,none,84,3.4,19.4,2022-11-26,2022-11-26
-3521,10,R8,SignName3503,2 generation [redesign],1900-01-01,Coupe,5.2 AMT 4WD,,2,4429,1940,1236,petrol,none,84,3.1,20,2022-11-26,2022-11-26
-3522,10,R8,SignName3504,2 generation [redesign],1900-01-01,Spyder roadster,5.2 AMT,,2,4429,1940,1242,petrol,none,84,3.8,19.5,2022-11-26,2022-11-26
-3523,10,R8,SignName3505,2 generation [redesign],1900-01-01,Spyder roadster,5.2 AMT 4WD,,2,4429,1940,1242,petrol,none,84,3.5,19.6,2022-11-26,2022-11-26
-3524,10,R8,SignName3506,2 generation [redesign],1900-01-01,Spyder roadster,5.2 AMT 4WD,,2,4429,1940,1242,petrol,none,84,3.2,20.2,2022-11-26,2022-11-26
+3519,10,R8,SignName3501,2 generation [redesign],1899-12-31,Coupe,5.2 AMT,,2,4429,1940,1236,petrol,none,84,3.7,19.5,2022-11-26,2022-11-26
+3520,10,R8,SignName3502,2 generation [redesign],1899-12-31,Coupe,5.2 AMT 4WD,,2,4429,1940,1236,petrol,none,84,3.4,19.4,2022-11-26,2022-11-26
+3521,10,R8,SignName3503,2 generation [redesign],1899-12-31,Coupe,5.2 AMT 4WD,,2,4429,1940,1236,petrol,none,84,3.1,20,2022-11-26,2022-11-26
+3522,10,R8,SignName3504,2 generation [redesign],1899-12-31,Spyder roadster,5.2 AMT,,2,4429,1940,1242,petrol,none,84,3.8,19.5,2022-11-26,2022-11-26
+3523,10,R8,SignName3505,2 generation [redesign],1899-12-31,Spyder roadster,5.2 AMT 4WD,,2,4429,1940,1242,petrol,none,84,3.5,19.6,2022-11-26,2022-11-26
+3524,10,R8,SignName3506,2 generation [redesign],1899-12-31,Spyder roadster,5.2 AMT 4WD,,2,4429,1940,1242,petrol,none,84,3.2,20.2,2022-11-26,2022-11-26
 3525,10,R8 LMP,SignName3507,1 generation,2000-01-01,Roadster,3.6 AMT,,,,,,,,,,,2022-11-26,2022-11-26
 3526,10,RS 2,SignName3508,1 generation,1993-01-01,wagon,2.2 MT AWD,Wagon,5,4580,1694,1408,Gasoline,Turbo,81,5.4,14.5,2022-11-26,2022-11-26
 3527,10,RS 3,SignName3509,1 generation (8P),2011-01-01,Hatchback 5 doors Sportback,2.5 AMT 4WD,,5,4302,1794,1402,petrol,turbine,82,4.6,13.1,2022-11-26,2022-11-26
@@ -3617,7 +3617,7 @@
 3634,10,S4,SignName3616,B9,2016-01-01,Avant wagon,3.0 TFSI V6 Tiptronic quattro,Wagon,5,4745,1842,1411,Gasoline,Turbo,84,4.9,10,2022-11-26,2022-11-26
 3635,10,S4,SignName3617,B9,2016-01-01,Sedan,3.0 TDI V6 Tiptronic quattro,Sedan,5,4745,1842,1404,Diesel,Turbo,83,4.8,7.2,2022-11-26,2022-11-26
 3636,10,S4,SignName3618,B9,2016-01-01,Sedan,3.0 TFSI V6 Tiptronic quattro,Sedan,5,4745,1842,1404,Gasoline,Turbo,84,4.7,9.8,2022-11-26,2022-11-26
-3637,10,S4,SignName3619,B9 [redesign],1900-01-01,wagon 5 doors,3.0 AT 4WD,,5,4770,1847,1433,diesel,turbine,83,4.9,7.2,2022-11-26,2022-11-26
+3637,10,S4,SignName3619,B9 [redesign],1899-12-31,wagon 5 doors,3.0 AT 4WD,,5,4770,1847,1433,diesel,turbine,83,4.9,7.2,2022-11-26,2022-11-26
 3638,10,S5,SignName3620,8T,2008-01-01,Cabriolet,3.0 TFSI S tronic quattro,Cabriolet,4,4635,1854,1380,Gasoline,Turbo,84,5.6,13.8,2022-11-26,2022-11-26
 3639,10,S5,SignName3621,8T,2008-01-01,Coupe,4.2 FSI MT quattro,Coupe,4,4635,1854,1369,Gasoline,,84,5.1,17.3,2022-11-26,2022-11-26
 3640,10,S5,SignName3622,8T,2008-01-01,Coupe,4.2 FSI tiptronic quattro,Coupe,4,4635,1854,1369,Gasoline,,84,5.4,15,2022-11-26,2022-11-26
@@ -3657,8 +3657,8 @@
 3674,10,S6,SignName3656,C8,2019-01-01,Avant wagon,3.0 AT 4WD,,5,4954,1886,1481,diesel,turbine,83,5.1,7.7,2022-11-26,2022-11-26
 3675,10,S6,SignName3657,C8,2019-01-01,Sedan,3.0 AT 4WD,,5,4954,1886,1446,diesel,turbine,83,5,7.4,2022-11-26,2022-11-26
 3676,10,S6,SignName3658,C8,2019-01-01,Sedan,3.0 AT 4WD,,5,4954,1886,1446,petrol,turbine,,4.5,11,2022-11-26,2022-11-26
-3677,10,S7,SignName3659,2 generation,1900-01-01,Sportback liftback,3,,,,,,,,,,,2022-11-26,2022-11-26
-3678,10,S7,SignName3660,2 generation,1900-01-01,Sportback liftback,3.0 AT 4WD,,,,,,,,,,,2022-11-26,2022-11-26
+3677,10,S7,SignName3659,2 generation,1899-12-31,Sportback liftback,3,,,,,,,,,,,2022-11-26,2022-11-26
+3678,10,S7,SignName3660,2 generation,1899-12-31,Sportback liftback,3.0 AT 4WD,,,,,,,,,,,2022-11-26,2022-11-26
 3679,10,S7,SignName3661,4G,2012-01-01,Sportback liftback,4.0 TFSI S tronic quattro,Liftback,4,4980,1911,1408,Gasoline,Biturbo,84,4.7,13.4,2022-11-26,2022-11-26
 3680,10,S7,SignName3662,4G [redesign],2014-01-01,Sportback liftback,4.0 TFSI S tronic quattro,Liftback,5,4980,1911,1408,Gasoline,Biturbo,84,4.6,13.2,2022-11-26,2022-11-26
 3681,10,S8,SignName3663,4 generation (D5),2019-01-01,Sedan,4.0 AT 4WD,,5,5179,1945,1474,petrol,turbine,86,3.8,16,2022-11-26,2022-11-26
@@ -3886,10 +3886,10 @@
 3903,11,Sprite,SignName3885,Mark 4 generation,1966-01-01,Cabriolet,1.3 MT,,,,,,,,,,,2022-11-26,2022-11-26
 3904,12,100,SignName3886,100 (BN4/BN6),1956-01-01,Roadster,2.6 MT,,,,,,,,,,,2022-11-26,2022-11-26
 3905,12,100,SignName3887,100 (BN4/BN6),1956-01-01,Roadster,2.6 MT,,,,,,,,,,,2022-11-26,2022-11-26
-3906,12,3000,SignName3888,Mark I,1900-01-01,Roadster,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
-3907,12,3000,SignName3889,Mark II,1900-01-01,Cabriolet,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
-3908,12,3000,SignName3890,Mark II,1900-01-01,Roadster,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
-3909,12,3000,SignName3891,Mark III,1900-01-01,Cabriolet,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
+3906,12,3000,SignName3888,Mark I,1899-12-31,Roadster,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
+3907,12,3000,SignName3889,Mark II,1899-12-31,Cabriolet,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
+3908,12,3000,SignName3890,Mark II,1899-12-31,Roadster,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
+3909,12,3000,SignName3891,Mark III,1899-12-31,Cabriolet,2.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
 3910,12,A 112,SignName3892,1 generation,1969-01-01,Hatchback 5 doors,0.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
 3911,12,A 112,SignName3893,1 generation,1969-01-01,Hatchback 5 doors,0.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
 3912,12,A 112,SignName3894,1 generation,1969-01-01,Hatchback 5 doors,0.9 MT,,,,,,,,,,,2022-11-26,2022-11-26
