@@ -519,6 +519,23 @@ async function getProductsCurrent(query, token) {
             } else {
                 lookId = partnerId
             }
+
+            const soldProducts = []
+            if (role === 3) {
+                const purchasesDB = await db.Purchases.findAll({
+                    where: {
+                        partnerId: partnerId
+                    },
+                    attributes: ['productId']
+                })
+                purchasesDB.forEach((purchase) => {
+                    soldProducts.push(purchase.productId)
+                })
+                // where.productId = {
+                //     [Op.or]: soldProducts
+                // }
+            }
+
             permitQuery.operations = {
                 or: [
                     {
@@ -529,6 +546,11 @@ async function getProductsCurrent(query, token) {
                     }
                 ]
             }
+            soldProducts.forEach((productId) => {
+                permitQuery.operations.or.push({
+                    productId: productId
+                })
+            })
             // console.log(permitQuery)
             const where = queryServices.parseQuery(permitQuery, db.ProductHolders)
             // console.log(where)
@@ -596,21 +618,7 @@ async function getProductsCurrent(query, token) {
                 }
             }
 
-            const listAgencyCustomers = []
-            if (role === 3) {
-                const purchasesDB = await db.Purchases.findAll({
-                    where: {
-                        partnerId: partnerId
-                    },
-                    attributes: ['customerId']
-                })
-                purchasesDB.forEach((purchase) => {
-                    listAgencyCustomers.push(purchase.customerId)
-                })
-                where.customerId = {
-                    [Op.or]: listAgencyCustomers
-                }
-            }
+
 
             // console.log(where)
             const { count, rows } = await db.ProductHolders.findAndCountAll({
