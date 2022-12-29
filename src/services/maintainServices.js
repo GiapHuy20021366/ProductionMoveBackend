@@ -154,13 +154,19 @@ async function maintainProducts({ productIds, note = null }, token) {
                     }
                 })
 
+                // u la tru
+                const invalidIds = []
                 productHoldersDB.forEach((holder) => {
                     // Not in customer, or not selled
                     if (holder.partner1Id !== -1 || holder.customerId === -1) {
-                        reject(messageCreater(-1, 'error', `No permission to maintain product with id ${holder.productId}`))
-                        return
+                        invalidIds.push(holder.productId)
+                        // return
                     }
                 })
+                if (invalidIds.length > 0) {
+                    reject(messageCreater(-1, 'error', `No permission to maintain product with ids ${JSON.stringify(invalidIds)}`))
+                    return
+                }
 
                 // Get information of products
                 const productDBs = await db.Products.findAll({
