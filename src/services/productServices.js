@@ -14,6 +14,9 @@ async function createProducts(products, token) {
         const listModelId = []
         for (let product of products) {
             listModelId.push(product.modelId)
+            if (!product.birth) {
+                product.birth = Date.now()
+            }
         }
 
         await authenticationServices.verifyToken(token).then(async (message) => {
@@ -62,6 +65,8 @@ async function createProducts(products, token) {
                         return
                     }
                 }
+
+                // products.forEach((product))
 
                 // Create products
                 const productsDB = await db.Products.bulkCreate(products, { returning: true })
@@ -591,16 +596,37 @@ async function getProductsCurrent(query, token) {
                 }
             }
 
+            const listAgencyCustomers = []
+            if (role === 3) {
+                const purchasesDB = await db.Purchases.findAll({
+                    where: {
+                        partnerId: partnerId
+                    },
+                    attributes: ['customerId']
+                })
+                purchasesDB.forEach((purchase) => {
+                    listAgencyCustomers.push(purchase.customerId)
+                })
+                where.customerId = {
+                    [Op.or]: listAgencyCustomers
+                }
+            }
+
+            // console.log(where)
             const { count, rows } = await db.ProductHolders.findAndCountAll({
                 where: where,
                 include: include,
                 offset: page,
                 limit: limit
             }).catch((error) => {
-                // console.log(error)
+                console.log(error)
                 reject(messageCreater(-5, 'error', 'Database Error!'))
             })
 
+            // // Dealer get Infor about sold product
+            // if (role === 3) {
+
+            // }
 
 
             resolve(messageCreater(1, 'success', `Found ${rows.length} products`, { count, rows }))
@@ -608,10 +634,12 @@ async function getProductsCurrent(query, token) {
 
         }).catch((error) => {
             // Token error
+            console.log(error)
             reject(messageCreater(-2, 'error', `Authentication failed: ${error.name}`))
         })
     })
 }
+
 
 
 

@@ -158,6 +158,7 @@ async function getCurrentProductsByQuery(req, res) {
         return res.status(200).json(message)
     } catch (err) {
         // Error caused by client
+        console.log(err)
         if (err.code === -1) {
             return res.status(401).json(err)
         }
