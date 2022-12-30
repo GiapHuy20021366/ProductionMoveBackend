@@ -462,7 +462,7 @@ async function confirmExports(exportIds, token) {
     })
 }
 
-async function returnProductsToCustomer(productIds, token) {
+async function returnProductsToCustomer({ productIds, note = null }, token) {
     return new Promise(async (resolve, reject) => {
         await authenticationServices.verifyToken(token).then(async (message) => {
             // Account not active
@@ -540,7 +540,7 @@ async function returnProductsToCustomer(productIds, token) {
                         partnerRecieverId: product.purchase.customer.id,
                         date: new Date(),
                         type: 4,
-                        note: '',
+                        note: note,
                         confirm: true
                     }
                     exportData.push(_export)

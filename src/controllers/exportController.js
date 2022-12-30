@@ -124,12 +124,13 @@ async function returnProductsToCustomer(req, res) {
     // Return products
     try {
         let productIds = req.body.productIds
+        const note = req.body.note
         const token = req.headers.authorization
 
         if (productIds.length === 0) {
             return res.status(400).json(messageCreater(-3, 'error', 'Length array of productIds must larger than 0'))
         }
-        const message = await exportServices.returnProductsToCustomer(productIds, token)
+        const message = await exportServices.returnProductsToCustomer({ productIds, note }, token)
         return res.status(200).json(message)
     } catch (err) {
         // Error caused by client

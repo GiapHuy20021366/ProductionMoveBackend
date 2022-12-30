@@ -32,7 +32,7 @@ module.exports = {
                 type: Sequelize.BOOLEAN
             },
             note: {
-                type: Sequelize.STRING
+                type: Sequelize.TEXT
             },
             createdAt: {
                 allowNull: false,
