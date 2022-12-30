@@ -166,11 +166,36 @@ async function getCurrentProductsByQuery(req, res) {
     }
 }
 
+async function getNewestExportsByIds(req, res) {
+    // Check does token exists
+    if (!req?.headers?.authorization) {
+        return res.status(403).json(messageCreater(-4, 'error', 'Missing parameters: Token not found'))
+    }
+
+    const data = req.body
+    if (!data || !data?.productIds) {
+        return res.status(400).json(messageCreater(-3, 'error', 'Missing parameters'))
+    }
+
+    try {
+        const message = await productServices.getExportsByIds(data.productIds, req.headers.authorization)
+        return res.status(200).json(message)
+    } catch (err) {
+        // Error caused by client
+        console.log(err)
+        if (err.code === -1) {
+            return res.status(401).json(err)
+        }
+        return res.status(500).json(err)
+    }
+}
+
 module.exports = {
     name: 'productController',
     createProducts,
     getProductsByIds,
     getProductsByQuery,
     getCurrentLocationOfProducts,
-    getCurrentProductsByQuery
+    getCurrentProductsByQuery,
+    getNewestExportsByIds
 }

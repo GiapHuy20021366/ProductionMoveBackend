@@ -649,6 +649,43 @@ async function getProductsCurrent(query, token) {
 }
 
 
+async function getExportsByIds(ids, token) {
+    return new Promise(async (resolve, reject) => {
+        await authenticationServices.verifyToken(token).then(async (message) => {
+            // Token valid, decoded data
+            // Not admin
+            if (message.data.data.role === 1) {
+                reject(messageCreater(-3, 'error', `Authentication failed: Not Permision`))
+                return
+            }
+
+            const exportsDB = await db.Exports.findAll({
+                where: {
+                    productId: {
+                        [Op.or]: ids
+                    }
+                },
+                order: [
+                    ['date', 'ASC'],
+                ],
+            })
+
+            const mapIdToExports = {}
+            exportsDB.forEach((export_) => {
+                mapIdToExports[export_.productId] = export_.id
+            })
+
+            resolve(messageCreater(1, 'success', 'Get newest export successful', mapIdToExports))
+
+        }).catch((error) => {
+            // Token error
+            reject(messageCreater(-3, 'error', `Authentication failed: ${error.name}`))
+        })
+    })
+}
+
+
+
 
 
 module.exports = {
@@ -657,5 +694,6 @@ module.exports = {
     createProducts,
     getProductsByIds,
     findProductsByQuery,
-    getProductsCurrent
+    getProductsCurrent,
+    getExportsByIds
 }

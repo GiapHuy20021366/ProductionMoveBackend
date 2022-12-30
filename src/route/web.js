@@ -45,6 +45,7 @@ let initWebRouters = (app) => {
     router.post('/api/get-products-by-query', productController.getProductsByQuery)
     router.post('/api/get-location-of-products', productController.getCurrentLocationOfProducts)
     router.post('/api/get-current-products-by-query', productController.getCurrentProductsByQuery)
+    router.post('/api/get-newest-exports', productController.getNewestExportsByIds)
 
     // Customers
     router.post('/api/get-customers-by-query', customerController.getCustomersByQuery)
