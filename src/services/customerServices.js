@@ -26,7 +26,7 @@ async function findCustomersByQuery(query, token) {
             }
 
             try {
-                const where = queryServices.parseQuery(query, db.Models)
+                const where = queryServices.parseQuery(query, db.Customers)
                 const page = query?.pageOffset?.offset
                 const limit = query?.pageOffset?.limit
                 const include = []
